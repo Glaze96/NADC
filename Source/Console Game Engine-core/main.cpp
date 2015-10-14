@@ -71,6 +71,8 @@ using namespace gengine;
 class Game : public Engine {
 private:
 
+	// This is a test comment to test out the capabilities of vs integration with github
+
 	Player* player;
 	Camera camera;
 
