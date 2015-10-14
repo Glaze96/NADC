@@ -73,7 +73,7 @@ private:
 
 	// Testelitest!
 
-	// test number 2
+	// Fucking test number omg
 
 	Player* player;
 	Camera camera;
