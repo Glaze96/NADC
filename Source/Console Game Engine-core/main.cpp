@@ -73,6 +73,8 @@ private:
 
 	// Testelitest!
 
+	// test number 2
+
 	Player* player;
 	Camera camera;
 
