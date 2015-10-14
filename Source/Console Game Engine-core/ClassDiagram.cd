@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="glaze::gengine::Alcohol">
+    <Position X="10.75" Y="16.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAgAAAAAAAAAAAAEAAAIAAAAAAAgAAAEAAAAAQ=</HashCode>
+      <FileName>src\entity\items\consumables\alcohol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Camera" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAgAIAIAA=</HashCode>
+      <FileName>src\system\camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Console" Collapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>src\system\console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Consumable">
+    <Position X="12" Y="13.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAgAAAAAAAAAAAABAAAIAAAAAAAAAAAEAAAgAA=</HashCode>
+      <FileName>src\entity\items\consumables\consumable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Creature">
+    <Position X="4.25" Y="9" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAACAAMEEAACAAAAABgAwCAEIAAECMAAAAAAQIBA=</HashCode>
+      <FileName>src\entity\creature\creature.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Enemy">
+    <Position X="1" Y="15" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAgBgAAAAAAAAAAAABAAAIAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>src\entity\creature\enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Entity">
+    <Position X="10.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EgQQIQgwAAgIAhAAECVABRACICAJAAIAAABEkAQAAAA=</HashCode>
+      <FileName>src\entity\entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::EntityTemplate" Collapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAQABAAAAAAEoAgAAAAECAAAIIAA=</HashCode>
+      <FileName>src\entity\entitytemplate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Equipment">
+    <Position X="15.75" Y="13.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIAACAhgABAAAAAAAAAABAQAIAAAAAAAACAAEAAAAAA=</HashCode>
+      <FileName>src\entity\items\equipment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::EquipmentSlot" Collapsed="true">
+    <Position X="29.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACMAAAQAAAAAAAAAAAAAIAABgAAAAgAAIAAICAAAA=</HashCode>
+      <FileName>src\entity\items\equipmentslot.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Food">
+    <Position X="13.25" Y="16.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAEAAAIAAAAIAAAAAAEgAAAAA=</HashCode>
+      <FileName>src\entity\items\consumables\food.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Inventory" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAABBAAAQAAIIAAgIAAAA=</HashCode>
+      <FileName>src\inventory\inventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Item">
+    <Position X="14.25" Y="9" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAgACAQAAAAAgAABAAEAAgIAAAgAAAAEICAAAA=</HashCode>
+      <FileName>src\entity\items\item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Player">
+    <Position X="4.25" Y="15" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAEAAAAQABCQoBARAAEAAABCiAAABEYAKQJA=</HashCode>
+      <FileName>src\entity\creature\player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Level" Collapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARCBAAAAAIBJAgAAAAAAAAACAAAACmCBIYAAAAIAAAA=</HashCode>
+      <FileName>src\level\level.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::LevelGenerator" Collapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAABAAAQBAACACgBAAQAQCBAAAAAgAQAAAQAAAgCKA=</HashCode>
+      <FileName>src\level\levelgenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::LevelManager" Collapsed="true">
+    <Position X="29.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAAAAAAAggAACAAAAAAABBACEAAAAAAAAAAAAhAAAA=</HashCode>
+      <FileName>src\level\levelmanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::LightSource">
+    <Position X="18.5" Y="13.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAEAEAAAAAIAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>src\entity\items\lightsource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Room" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIBAAAIAAAAAAABAAAAAAAAAAAEAAAAAAgAIAAAA=</HashCode>
+      <FileName>src\level\room.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::ShopKeeper">
+    <Position X="8.25" Y="15" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAABAAAIAACAAAAAAAAEAAAgAA=</HashCode>
+      <FileName>src\entity\creature\shopkeeper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Stairs">
+    <Position X="21.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>src\entity\level\stairs.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::Tile" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAiQAAAIAAQAAAAAAAAAAQABgAAIAAAAgCAAAQA=</HashCode>
+      <FileName>src\level\tile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glaze::gengine::UIManager" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAABIAIgAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\ui\uimanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
