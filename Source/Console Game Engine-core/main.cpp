@@ -73,6 +73,8 @@ private:
 
 	// This is a test comment to test out the capabilities of vs integration with github
 
+	// 1
+
 	Player* player;
 	Camera camera;
 
