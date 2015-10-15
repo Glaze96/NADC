@@ -23,12 +23,11 @@ namespace glaze {
 				player->setPosition(_currentLevel->GetStairsDown()->getPosition());
 				player->UpdateVisibility();
 			}
-
 		}
 
 		void LevelManager::GoDown(Player* player) {
-
 			_currentLevelNumber++;
+
 			if (_numLevels <= _currentLevelNumber)
 				AddLevel(player->getSuperVision());
 

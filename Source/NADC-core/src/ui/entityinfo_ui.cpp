@@ -18,10 +18,10 @@ namespace glaze {
 
 			if (currentMenu == Menu::Inv) {
 
-				std::vector<Entity*>* entities = player->getInventory()->getItems();
+				std::vector<Entity*> entities = player->getInventory()->getItems();
 
-				if (selection < entities->size()) {
-					Entity* entity = entities->at(selection);
+				if (selection < entities.size()) {
+					Entity* entity = entities.at(selection);
 					entity->PrintStats(_position, lines);
 				}
 

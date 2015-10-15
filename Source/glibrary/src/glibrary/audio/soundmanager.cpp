@@ -10,6 +10,12 @@ namespace glaze {
 		ISoundEngine*				SoundManager::_engine;
 		std::vector<Playlist*>		SoundManager::_playlists;
 
+		void SoundManager::InitPlaylists() {
+			AddPlayList(new Playlist("Background music", true, "BGMusic/BGMusic", 7));
+			AddPlayList(new Playlist("Hellos", false, "Hello/Hello", 4));
+			AddPlayList(new Playlist("Ouches", false, "Ouch/Ouch", 3));
+		}
+
 		void SoundManager::Init() { 
 			_engine = createIrrKlangDevice();
 			if (_engine != nullptr)

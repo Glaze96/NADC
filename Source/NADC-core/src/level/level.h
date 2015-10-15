@@ -21,18 +21,24 @@ namespace glaze {
 		class Level {
 		private:
 			Vector2i _size;
-			std::vector<std::vector<Tile>> _tiles;
 			int _levelNumber;
-
+			
+			std::vector<std::vector<Tile>> _tiles;
 			std::vector<Entity*> _entities;
-
+			
 			EventHandler _eventHandler;
+
+			unsigned int _numEntities;
+			unsigned int _numEntitiesAtPosition;
+
 
 		public: // Public con -& destructurs
 			Level(const Vector2i& size, const bool& allVisible);
 			void Fill(const Tile& tile);
 
 		public: // Getters
+			const unsigned int&		GetNumEntitiesAtPosition(const Vector2i& position) const;
+			const unsigned int&		GetNumEntitiesAtPosition(const int& x, const int& y) const;
 			std::vector<Entity*>	GetEntitiesAtPosition(const Vector2i& position) const;
 			std::vector<Entity*>	GetEntitiesAtPosition(const int& x, const int& y) const;
 			const Tile&				GetTile(const Vector2i& position) const;
@@ -44,7 +50,7 @@ namespace glaze {
 		public: // getters
 			const Vector2i& getSize() const			{ return _size; }
 			const int&		getLevelNumber() const	{ return _levelNumber; }
-			EventHandler&	getEventHandler()		{ return _eventHandler; }
+			EventHandler&	getEventHandler() { return _eventHandler; }
 
 		public: // Setters
 			void SetTile(const Vector2i& position, const Tile& tile);

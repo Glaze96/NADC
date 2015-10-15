@@ -18,40 +18,47 @@ namespace glaze {
 
 		class Player : public Creature {
 		private: // Private fields
+
 			std::vector<EquipmentSlot> _equipmentSlots;
 			Inventory _inventory;
-			bool _moved;
 			float _visibilityRange;
+			
+			// Stats
 			float _drunkness;
 
 			Menu _currentMenu;
 			unsigned int _selection;
 
+			// Debug
 			bool _superVision;
+			bool _godmode;
+
 
 		public: // Con -& destructors
 			explicit Player(const std::string& name);
-			void GenerateEquipmentSlots();
 			~Player() {}
 
 		public: // Public getters
 			Inventory*							getInventory() { return &_inventory; }
 			Menu								getMenu() const { return _currentMenu; }
 			const unsigned int&					getSelection() const { return _selection; }
-			const bool&							getMoved() const { return _moved; }
 			const std::vector<EquipmentSlot>&	getEquipmentSlots() const { return _equipmentSlots; }
 			const bool&							getSuperVision() const { return _superVision; }
 
 		public: // Public setters
 			void ChangeDrunkness(const float& value) { _drunkness < 0.0f ? _drunkness = 0.0f : _drunkness += value; }
+			
+		public:
+			bool ToggleSuperVision();
+			bool ToggleGodmode();
 
 		public: // Public methods
 			void Update(const float& updateTick, const int& ch = 0);
 			void Unequip(Item* item);
 			void Equip(Item* item);
 			void PrintStats(const Vector2i& position, unsigned int& lines) override;
-			bool ToggleSuperVision();
 			void UpdateVisibility() const;
+			void GenerateEquipmentSlots();
 
 		private: // Private methods
 			void MakeAction(const Action& action);

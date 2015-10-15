@@ -42,7 +42,7 @@ namespace glaze {
 		}
 
 		bool Entity::onEvent(Event& event) {
-			if(event.getType() == Event::Type::PlayerMoved)
+			if (event.getType() == Event::Type::PlayerMoved)
 				onPlayerMoved(&event);
 
 			return false;
@@ -91,7 +91,9 @@ namespace glaze {
 
 		void Entity::onPlayerMoved(Event* event) {
 			PlayerMovedEvent* e = static_cast<PlayerMovedEvent*>(event);
-			UpdateVisibility(e->_player->getPosition());
+
+			if ((e->_toPosition - getPosition()).Mag() < 20)
+				UpdateVisibility(e->_player->getPosition());
 
 		}
 

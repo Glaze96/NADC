@@ -29,6 +29,14 @@ namespace glaze {
 				_tiles.push_back(std::vector<Tile>(_size.y, tile));
 		}
 
+		const unsigned& Level::GetNumEntitiesAtPosition(const Vector2i& position) const {
+			return GetNumEntitiesAtPosition(position.x, position.y);
+		}
+
+		const unsigned& Level::GetNumEntitiesAtPosition(const int& x, const int& y) const {
+			return GetEntitiesAtPosition(x, y).size();
+		}
+
 		void Level::SetTile(const Vector2i& position, const Tile& tile) {
 			SetTile(position.x, position.y, tile);
 		}
@@ -49,7 +57,12 @@ namespace glaze {
 		}
 
 		void Level::SetTileVisible(const int& x, const int& y) {
+			try {
 			_tiles.at(x).at(y).setVisible(true);
+			}
+			catch (...) {
+				Log::AddMessage("Tried to set tile visible out of bounds", Message::Type::Warning);
+			}
 		}
 
 		const Tile& Level::GetTile(const Vector2i& position) const {

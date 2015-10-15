@@ -6,6 +6,7 @@
 
 // Glibrary includes
 #include <Glibrary/console/log.h>
+#include <Glibrary/utils/utils.h>
 
 // Gengine includes
 #include "../entity/entitytemplate.h"
@@ -19,26 +20,40 @@ namespace glaze {
 		std::vector<std::string> Console::_commands;
 		bool Console::_initialized;
 
+		void Console::Init() {
+			_commands.push_back("SPAWN 'integer(optional)' 'name of entity'; spawns entity at player position");
+			_commands.push_back("ADD 'integer(optional)' 'name of entity'; add entity to inventory");
+			_commands.push_back("GODMODE; toggles godmode");
+			_commands.push_back("SUPERVISION; toggles supervision (sets all tiles visible)");
+			_commands.push_back("NOCLIP; toggles noclip");
+			_commands.push_back("DOWN; goes down one level");
+			_commands.push_back("UP; moves player up one level");
+		}
+
 		void Console::Input(Player* player) {
 			RunCommand(Log::Input(), player);
 		}
 
 		void Console::RunCommand(const std::string& fullCommand, Player* player) {
+			if (fullCommand== "")
+				return;
+
 			if (_player == nullptr)
 				_player = player;
-
+			
 			std::string command, entityName;
 			int num = 0;
 
-			 std::stringstream(fullCommand) >> command >> num >> entityName; // Split command into its components
+			std::stringstream(fullCommand) >> command >> num >> entityName; // Split command into its components
 
-			if (command == "")
-				return;
+
 
 			if (num <= 0) {
 				num = 1;
 				std::stringstream(fullCommand) >> command >> entityName; // Split command into its components
 			}
+
+
 
 			if (command == "add") {
 				Commands::Add(entityName, num);
@@ -66,12 +81,17 @@ namespace glaze {
 			}
 
 			if (command == "down") {
-				Commands::GoDown();
+				Commands::GoDown(num);
 				return;
 			}
 
 			if (command == "up") {
-				Commands::GoUp();
+				Commands::GoUp(num);
+				return;
+			}
+
+			if (command == "help") {
+				Commands::Help();
 				return;
 			}
 
@@ -117,12 +137,21 @@ namespace glaze {
 			_player->ToggleNoClip();
 		}
 
-		void Console::Commands::GoDown() {
-			LevelManager::GoDown(_player);
+		void Console::Commands::GoDown(const int& num) {
+			for (int i = 0; i < num; i++)
+				LevelManager::GoDown(_player);
 		}
 
-		void Console::Commands::GoUp() {
-			LevelManager::GoUp(_player);
+		void Console::Commands::GoUp(const int& num) {
+			for (int i = 0; i < num; i++)
+				LevelManager::GoUp(_player);
+		}
+
+		void Console::Commands::Help() {
+			for (auto& command : _commands) {
+				Log::AddMessage(command);
+				Log::AddMessage("");
+			}
 		}
 
 	} // End namespace gengine

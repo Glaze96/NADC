@@ -19,8 +19,8 @@ namespace glaze {
 			~Console() {}
 
 		public: // Public static methods
+			static void Init();
 			static void Input(Player* player);
-
 
 		private: // Private static methods
 			static void RunCommand(const std::string& command, Player* player);
@@ -31,8 +31,9 @@ namespace glaze {
 				static void Godmode();
 				static void SuperVision();
 				static void NoClip();
-				static void GoDown();
-				static void GoUp();
+				static void GoDown(const int& num);
+				static void GoUp(const int& num);
+				static void Help();
 			};
 		};
 

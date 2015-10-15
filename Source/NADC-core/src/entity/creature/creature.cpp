@@ -13,41 +13,11 @@ using namespace glibrary;
 			const float& health, const float& totalDamage, const float& totalArmour)
 			: Entity(name, appearance, color),
 			_health(health), _maxHealth(health), _totalDamage(totalDamage), 
-			_totalArmour(totalArmour),  _noClip(false), _invincible(false) {}
+			_totalArmour(totalArmour) {}
 
-		bool Creature::ToggleNoClip() {
-			if (!_noClip)
-				_noClip = true;
-			else
-				_noClip = false;
 
-			Log::AddMessage("Noclip " + std::to_string(_noClip));
 
-			return _noClip;
-		}
 
-		bool Creature::ToggleInvincibility() {
-			if (!_invincible) 
-				_invincible = true;
-			else 
-				_invincible = false;
-
-			Log::AddMessage("Invincibility " + std::to_string(_invincible));
-
-			return _invincible;
-			
-		}
-
-		bool Creature::ToggleGodmode() {
-			if (!_godmode)
-				_godmode = true;
-			else
-				_godmode = false;
-
-			Log::AddMessage("Godmode " + std::to_string(_invincible));
-
-			return _invincible;
-		}
 
 		void Creature::DoAction(Entity* entity, Player* player, const Action& action) {
 			entity->Interact(player);
@@ -65,6 +35,28 @@ using namespace glibrary;
 			return true;
 		}
 
+		bool Creature::ToggleNoClip() {
+			if (!_noClip)
+				_noClip = true;
+			else
+				_noClip = false;
+
+			Log::AddMessage("Noclip " + _noClip ? "on" : "off");
+
+			return _noClip;
+		}
+
+		bool Creature::ToggleInvincibility() {
+			if (!_invincible)
+				_invincible = true;
+			else
+				_invincible = false;
+
+			Log::AddMessage("Invincibility " + _invincible ? "on" : "off");
+
+			return _invincible;
+
+		}
 		void Creature::Damage(const float& value) {
 			if (value > 0.0f) {
 				if (!_invincible) {

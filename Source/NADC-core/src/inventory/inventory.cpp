@@ -19,21 +19,22 @@ namespace glaze {
 
 		bool Inventory::AddEntity(Entity* item, const bool& supressLog) {
 
+			if (item == nullptr) {
+				Log::AddMessage("Failed to add item to inventory");
+				return false;
+			}
+
 			if (_items.size() >= _maxSize) {
 				Log::AddMessage("Inventory is full");
 				return false;
 			}
 
-			if (item != nullptr) {
-				if (!supressLog) Log::AddMessage("Added '" + item->getName() + "' to inventory");
+			if (!supressLog) Log::AddMessage("Added '" + item->getName() + "' to inventory");
 
-				item->setInInventory(true);
-				_items.push_back(item);
-				return true;
-			}
-
-			Log::AddMessage("Failed to add item to inventory");
-			return false;
+			_numItems++;
+			item->setInInventory(true);
+			_items.push_back(item);
+			return true;
 		}
 
 		void Inventory::Destroy(Entity* entity) {
@@ -44,6 +45,7 @@ namespace glaze {
 					break;
 				}
 			}
+			_numItems--;
 
 			delete entity;
 		}

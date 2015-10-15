@@ -12,6 +12,7 @@ namespace glaze {
 		class Inventory {
 		private:
 			std::vector<Entity*> _items;
+			unsigned int _numItems;
 			unsigned int _maxSize;
 
 		public: // Public con -& destructors
@@ -19,8 +20,9 @@ namespace glaze {
 			~Inventory();
 
 		public: // Public getters
-			unsigned int getMaxSize() const { return _maxSize; }
-			std::vector<Entity*>* getItems() { return &_items; }
+			const unsigned int& getMaxSize() const { return _maxSize; }
+			std::vector<Entity*>& getItems() { return _items; }
+			const unsigned int& getNumItems() const { return _numItems; }
 
 		public: // Public methods
 			bool AddEntity(Entity* item, const bool& supressLog = false);

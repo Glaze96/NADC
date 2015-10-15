@@ -20,6 +20,7 @@ namespace glaze {
 
 		public: // Public methods
 			static void Init();
+			static void InitPlaylists();
 			static void AddPlayList(Playlist *playlist);
 			static Playlist* GetPlaylist(const std::string &name);
 			static void Update();

@@ -13,20 +13,15 @@ namespace glaze {
 		class UIManager {
 		private: // Private fields
 			static std::vector<UIElement*> _uiElements;
-
 		private:
 			UIManager() { }
 			~UIManager() { }
 
 		public: // Public methods
-			static void Init(const Camera& camera);
 			static void Draw(Player* player);
-
-		private: // Private methods
-			static void CreateUIs(const Camera& camera);
+			static void Init(const int& gameWindowWidth, const int& gameWindowHeight, const int& uiWidth);
 
 		};
-
 
 	} // End namespace gengine
 } // End namespace glaze

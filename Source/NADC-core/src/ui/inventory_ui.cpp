@@ -24,40 +24,36 @@ namespace glaze {
 			Out::PrintlnAt(_position.x + 2, lines, "Inventory");
 			lines += 2;
 
-			std::vector<Entity*>* items = inventory->getItems();
+			std::vector<Entity*> items = inventory->getItems();
 
-			for (unsigned int i = 0; i < inventory->getMaxSize() - items->size(); i++) {
-
-				bool selected = false;
-
-				if (menu == Menu::Inv && selection == i + items->size())
-					selected = true;
-
-				if (selected)
+			if (items.size() == 0) {
+				if (menu == Menu::Inv)
 					Color::SetInvert();
 
-				Out::PrintlnAt(_position.x + 2, lines + i + items->size(), "--------------------------------------");
+				Out::PrintlnAt(_position.x + 2, lines, "--");
 
-				if (selected)
+				if (menu == Menu::Inv)
 					Color::ResetInvert();
-
 			}
+			else {
 
-			for (unsigned int i = 0; i < items->size(); i++) {
-				bool selected = false;
+				for (unsigned int i = 0; i < items.size(); i++) {
+					bool selected = false;
 
-				if (menu == Menu::Inv && selection == i)
-					selected = true;
+					if (menu == Menu::Inv && selection == i)
+						selected = true;
 
-				Entity* currentItem = items->at(i);
+					Entity* currentItem = items.at(i);
 
-				if (selected)
-					Color::SetInvert();
+					if (selected)
+						Color::SetInvert();
 
-				Out::PrintlnAt(_position.x + 2, lines + i, "%s%s", currentItem->getEquipped() ? "*" : "", currentItem->getName().c_str());
+					Out::PrintlnAt(_position.x + 2, lines + i, "%s%s", currentItem->getEquipped() ? "*" : "", currentItem->getName().c_str());
 
-				if (selected)
-					Color::ResetInvert();
+					if (selected)
+						Color::ResetInvert();
+				}
+
 			}
 
 			DrawBorders();
@@ -66,3 +62,21 @@ namespace glaze {
 
 	} // End namespace gengine
 } // End namespace glaze
+
+
+//for (unsigned int i = 0; i < inventory->getMaxSize() - items->size(); i++) {
+
+//	bool selected = false;
+
+//	if (menu == Menu::Inv && selection == i + items->size())
+//		selected = true;
+
+//	if (selected)
+//		Color::SetInvert();
+
+//	Out::PrintlnAt(_position.x + 2, lines + i + items->size(), "--");
+
+//	if (selected)
+//		Color::ResetInvert();
+
+//}

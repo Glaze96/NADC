@@ -18,7 +18,7 @@ namespace glaze {
 	namespace gengine {
 
 		Player::Player(const std::string&  name)
-			: Creature(name, 'P', Color::WHITE, 100.0f), _inventory(Inventory(34)), _moved(false), _currentMenu(Menu::Inv), _selection(0), _superVision(false) {
+			: Creature(name, 'P', Color::WHITE, 100.0f), _inventory(Inventory(34)), _currentMenu(Menu::Inv), _selection(0), _superVision(false) {
 			setVisible(true);
 
 			GenerateEquipmentSlots();
@@ -43,11 +43,11 @@ namespace glaze {
 			_selection++;
 
 			if (_currentMenu == Menu::Inv) {
-				if (_selection > _inventory.getMaxSize() - 1)
+				if (_selection > _inventory.getNumItems() - 1)
 					_selection = 0;
 			}
 			else {
-				if (_selection > 13) //TODO: fix hardcode
+				if (_selection > _level->GetNumEntitiesAtPosition(getPosition()) - 1) //TODO: fix hardcode
 					_selection = 0;
 			}
 		}
@@ -55,10 +55,12 @@ namespace glaze {
 		void Player::SelectionUp() {
 
 			if (_selection == 0) {
+
 				if (_currentMenu == Menu::Inv)
-					_selection = _inventory.getMaxSize() - 1;
+					_selection = _inventory.getNumItems() - 1;
 				else
-					_selection = 13; //TODO: fix hardcode
+					_selection = _level->GetNumEntitiesAtPosition(getPosition()) - 1;
+
 			}
 			else {
 				_selection--;
@@ -97,6 +99,7 @@ namespace glaze {
 
 		}
 
+
 		void Player::Unequip(Item* item) {
 
 			for (auto& eqSlot : _equipmentSlots) {
@@ -127,14 +130,12 @@ namespace glaze {
 
 		void Player::MakeAction(const Action& action) {
 
-			_moved = true;
-
 			if (_currentMenu == Menu::Inv) {
 
-				std::vector<Entity*>* items = _inventory.getItems();
+				std::vector<Entity*> items = _inventory.getItems();
 
-				if (_selection < items->size()) {
-					Entity* item = items->at(_selection);
+				if (_selection < items.size()) {
+					Entity* item = items.at(_selection);
 					item->DoAction(item, this, action);
 				}
 
@@ -182,29 +183,28 @@ namespace glaze {
 
 		void Player::Movement(const char& ch) {
 
-			_moved = false;
-			bool move = false;
+			bool moved = false;
 
 			Vector2i direction;
 
 			if (ch == 'w') {
 				direction = Vector2i(0, -1);
-				move = true;
+				moved = true;
 			}
 			else if (ch == 'a') {
 				direction = Vector2i(-1, 0);
-				move = true;
+				moved = true;
 			}
 			else if (ch == 's') {
 				direction = Vector2i(0, 1);
-				move = true;
+				moved = true;
 			}
 			else if (ch == 'd') {
 				direction = Vector2i(1, 0);
-				move = true;
+				moved = true;
 			}
 
-			if ((rand() % 1000) / 1000.0f < _drunkness && move) {
+			if (rand() % 100 / 100.0f < _drunkness && moved) {
 				switch (rand() % 4) {
 				case 0:
 					direction = Vector2i(-1, 0);
@@ -221,10 +221,10 @@ namespace glaze {
 				}
 			}
 
-			if (move) {
-				PlayerMovedEvent e = PlayerMovedEvent(this, getPosition(), getPosition() + direction);
-				_level->getEventHandler().Dispatch(e);
-				_moved = Move(direction);
+			if (moved) {
+				PlayerMovedEvent event = PlayerMovedEvent(this, getPosition(), getPosition() + direction);
+				_level->getEventHandler().Dispatch(event);
+				Move(direction);
 				UpdateVisibility();
 			}
 
@@ -277,6 +277,21 @@ namespace glaze {
 				}
 			}
 
+		}
+
+		bool Player::ToggleGodmode() {
+			if (!_godmode) {
+				_godmode = true;
+				_invincible = true;
+			}
+			else {
+				_godmode = false;
+				_invincible = false;
+			}
+
+			Log::AddMessage("Godmode " + _godmode ? "on" : "off");
+
+			return _godmode;
 		}
 
 		void Player::PrintStats(const Vector2i& position, unsigned int& lines) {

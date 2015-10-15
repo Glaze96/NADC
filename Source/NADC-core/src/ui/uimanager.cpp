@@ -17,37 +17,38 @@ namespace glaze {
 
 		std::vector<UIElement*> UIManager::_uiElements;
 
-		void UIManager::Init(const Camera& camera) {
-			CreateUIs(camera);
-		}
-
-		void UIManager::CreateUIs(const Camera& camera) {
-
+		void UIManager::Init(const int& gameWindowWidth, const int& gameWindowHeight, const int& uiWidth) {
+			
+			int currentYPos = 0;
+			
 			InventoryUI* inventoryUI = new InventoryUI(
-				Vector2i(camera.getSize().x, 0),
-				Vector2i(51, 40));
-
-			PlayerInfoUI* playerInfoUI = new PlayerInfoUI(
-				Vector2i(camera.getSize().x, inventoryUI->getSize().y),
-				Vector2i(25, 20));
-
-			EquipmentUI* equipmentUI = new EquipmentUI(
-				Vector2i(camera.getSize().x + playerInfoUI->getSize().x, inventoryUI->getSize().y),
-				Vector2i(inventoryUI->getSize().x - playerInfoUI->getSize().x, playerInfoUI->getSize().y));
+			Vector2i(gameWindowWidth, currentYPos),
+			Vector2i(uiWidth/2, 40));
+			_uiElements.push_back(inventoryUI);
 
 			TileInfoUI* tileInfoUI = new TileInfoUI(
-				Vector2i(camera.getSize().x, inventoryUI->getSize().y + playerInfoUI->getSize().y),
-				Vector2i(inventoryUI->getSize().x, 20));
-
-			EntityInfoUI* entityInfoUI = new EntityInfoUI(
-				Vector2i(camera.getSize().x, inventoryUI->getSize().y + playerInfoUI->getSize().y + tileInfoUI->getSize().y),
-				Vector2i(inventoryUI->getSize().x, camera.getSize().y - (inventoryUI->getSize().y + playerInfoUI->getSize().y + tileInfoUI->getSize().y)));
-
-			_uiElements.push_back(inventoryUI);
-			_uiElements.push_back(playerInfoUI);
-			_uiElements.push_back(equipmentUI);
+				Vector2i(gameWindowWidth + uiWidth / 2, currentYPos),
+				Vector2i(uiWidth / 2 + 1, 40));
 			_uiElements.push_back(tileInfoUI);
+
+			currentYPos += _uiElements.back()->getSize().y;
+			
+			EntityInfoUI* entityInfoUI = new EntityInfoUI(
+				Vector2i(gameWindowWidth, currentYPos),
+				Vector2i(uiWidth, 30));
 			_uiElements.push_back(entityInfoUI);
+			
+			currentYPos += _uiElements.back()->getSize().y;
+
+			PlayerInfoUI* playerInfoUI = new PlayerInfoUI(
+				Vector2i(gameWindowWidth, currentYPos),
+				Vector2i(uiWidth / 2, gameWindowHeight - currentYPos));
+			_uiElements.push_back(playerInfoUI);
+
+			EquipmentUI* equipmentUI = new EquipmentUI(
+				Vector2i(gameWindowWidth + uiWidth / 2, currentYPos),
+				Vector2i(uiWidth / 2 + 1, gameWindowHeight - currentYPos));
+			_uiElements.push_back(equipmentUI);
 
 		}
 
