@@ -1,3 +1,3 @@
 # NADC
-"Not Another Dungeon Crawler" NAD-Cee
+"Not Another Dungeon Crawler" NADC(ee)
 
