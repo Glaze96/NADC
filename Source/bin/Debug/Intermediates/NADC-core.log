@@ -1,0 +1,50 @@
+﻿Build started 2015-10-15 15:59:09.
+     1>Project "D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\NADC-core\NADC-core.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         F:\_Applications\Visual Studio 2015\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\\" /Fd"D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp src\system\console.cpp
+         console.cpp
+         main.cpp
+         Generating Code...
+       Link:
+         F:\_Applications\Visual Studio 2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\NADC.exe" /INCREMENTAL /NOLOGO glibrary.lib irrklang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\NADC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\NADC.lib" /MACHINE:X86 D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\main.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\creature.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\enemy.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\player.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\shopkeeper.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\entity.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\entitytemplate.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\food.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\lightsource.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\stairs.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\newspawnsource.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\inventory.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\alcohol.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\consumable.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\equipment.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\equipmentslot.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\item.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\levelmanager.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\room.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\level.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\levelgenerator.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\tile.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\camera.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\console.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\event.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\eventhandler.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\eventlistener.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\playerattackedevent.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\playermovedevent.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\entityinfo_ui.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\equipment_ui.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\inventory_ui.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\playerinfo_ui.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\tileinfo_ui.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\uielement.obj
+         D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\Intermediates\uimanager.obj
+         NADC-core.vcxproj -> D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\bin\Debug\NADC.exe
+     1>Done Building Project "D:\Dropbox\_Applications\VS2013\_Projects\C++\Console\NADC\NADC-core\NADC-core.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.05

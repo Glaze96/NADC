@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\entity\items\consumables\alcohol.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\camera.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\console.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\items\consumables\consumable.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\creature\creature.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\creature\enemy.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\entity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\entityinfo_ui.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\entitytemplate.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\items\equipment.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\equipment_ui.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\items\equipmentslot.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\items\consumables\food.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\inventory\inventory.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\inventory_ui.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\items\item.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level\level.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level\levelgenerator.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level\levelmanager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\creature\player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\playerinfo_ui.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level\room.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\creature\shopkeeper.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\level\stairs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level\tile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\tileinfo_ui.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\uielement.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\uimanager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\items\lightsource.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity\newspawnsource.cpp" />
+    <ClCompile Include="src\system\events\eventlistener.cpp" />
+    <ClCompile Include="src\system\events\event.cpp" />
+    <ClCompile Include="src\system\events\eventhandler.cpp" />
+    <ClCompile Include="src\system\events\types\playermovedevent.cpp" />
+    <ClCompile Include="src\system\events\types\playerattackedevent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ui\uimanager.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\uielement.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\tileinfo_ui.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level\tile.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\creature\shopkeeper.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level\room.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\playerinfo_ui.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\creature\player.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level\levelmanager.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level\levelgenerator.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level\level.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\item.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\inventory_ui.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\inventory\inventory.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\consumables\food.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\equipmentslot.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\equipment_ui.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\equipment.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\entitytemplate.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\entityinfo_ui.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\entity.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\creature\enemy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\creature\creature.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\consumables\consumable.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\console.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\camera.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\consumables\alcohol.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\items\lightsource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity\newspawnsource.h" />
+    <ClInclude Include="src\system\events\eventlistener.h" />
+    <ClInclude Include="src\system\events\event.h" />
+    <ClInclude Include="src\entity\level\stairs.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\events\eventhandler.h" />
+    <ClInclude Include="src\system\events\types\playermovedevent.h" />
+    <ClInclude Include="src\system\events\types\playerattackedevent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{d7c077e9-819f-4cae-91bd-962b98c99601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{422588a6-40e1-4521-8e9e-6355bfcdc03e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

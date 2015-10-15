@@ -1,0 +1,50 @@
+﻿Build started 2015-10-14 14:10:23.
+     1>Project "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\Console Game Engine-core\Console Game Engine-core.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         F:\_Applications\Visual Studio 2015\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Console Game Engine-core.exe" /INCREMENTAL:NO /NOLOGO glibrary.lib irrklang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Console Game Engine-core.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Console Game Engine-core.lib" /MACHINE:X86 /SAFESEH "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\main.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\creature.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\enemy.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\player.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\shopkeeper.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\entity.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\entitytemplate.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\food.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\lightsource.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\stairs.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\newspawnsource.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\inventory.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\alcohol.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\consumable.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\equipment.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\equipmentslot.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\item.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\levelmanager.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\room.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\level.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\levelgenerator.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\tile.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\camera.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\console.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\event.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\eventhandler.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\eventlistener.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\playerattackedevent.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\playermovedevent.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\entityinfo_ui.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\equipment_ui.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\inventory_ui.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\playerinfo_ui.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\tileinfo_ui.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\uielement.obj"
+         "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Intermediates\uimanager.obj"
+         Generating code
+         6 of 619 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+           0 functions were new in current compilation
+           5 functions had inline decision re-evaluated but remain unchanged
+         Finished generating code
+         Console Game Engine-core.vcxproj -> D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\bin\Release\Console Game Engine-core.exe
+     1>Done Building Project "D:\Dropbox\_Applications\VS2013\Console\C++\Console Game Engine\Console Game Engine-core\Console Game Engine-core.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.12
