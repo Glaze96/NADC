@@ -1,9 +1,0 @@
-﻿Build started 2015-10-16 16:02:26.
-     1>Project "D:\Git\NADC\Source\glibrary\Glibrary.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
-         Glibrary.vcxproj -> D:\Git\NADC\Source\\Dependencies\lib\glibrary.lib
-     1>Done Building Project "D:\Git\NADC\Source\glibrary\Glibrary.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.07

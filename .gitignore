@@ -46,6 +46,8 @@ build/
 .builds
 *.pidb
 *.idb
+*.iobj
+*.ipdb
 *.log
 *.scc
 
