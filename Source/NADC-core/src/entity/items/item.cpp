@@ -48,7 +48,7 @@ namespace glaze {
 
 		void Item::PickUp(Player* player) {
 
-			setLevel(player->getLevel());
+			setLevel(player->getCurrentLevel());
 
 			// Copy item
 			Entity* copyOfItem = clone();
@@ -62,7 +62,7 @@ namespace glaze {
 
 		void Item::Drop(Player* player) {
 
-			_level = player->getLevel();
+			_level = player->getCurrentLevel();
 
 			// Unequip item if equipped
 			if (getEquipped()) { player->Unequip(this); }

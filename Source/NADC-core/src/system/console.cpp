@@ -17,6 +17,7 @@ namespace glaze {
 	namespace gengine {
 		
 		Player* Console::_player;
+		Level* Console::_level;
 		std::vector<std::string> Console::_commands;
 		bool Console::_initialized;
 
@@ -24,7 +25,7 @@ namespace glaze {
 			_commands.push_back("SPAWN 'integer(optional)' 'name of entity'; spawns entity at player position");
 			_commands.push_back("ADD 'integer(optional)' 'name of entity'; add entity to inventory");
 			_commands.push_back("GODMODE; toggles godmode");
-			_commands.push_back("ALLVISIBLE; toggles supervision (sets all tiles visible)");
+			_commands.push_back("XRAY; toggles xray vision (sets all tiles/ entities visible)");
 			_commands.push_back("NOCLIP; toggles noclip");
 			_commands.push_back("DOWN/ D 'integer(optional)'; goes down one level");
 			_commands.push_back("UP/ U 'integer(optional)'; moves player up one level");
@@ -41,6 +42,9 @@ namespace glaze {
 			if (_player == nullptr)
 				_player = player;
 			
+			if (_level == nullptr)
+				_level = player->getCurrentLevel();
+
 			std::string command, entityName;
 			int num = 0;
 
@@ -67,8 +71,8 @@ namespace glaze {
 				return;
 			}
 
-			if (command == "allvisible") {
-				Commands::SuperVision();
+			if (command == "xray") {
+				Commands::Xray();
 				return;
 			}
 
@@ -113,7 +117,7 @@ namespace glaze {
 
 			int x = 0;
 			for (int i = 0; i < num; i++) {
-				if (!_player->getLevel()->AddEntity(EntityTemplate::Find(entityName), _player->getPosition(), true)) {
+				if (!_player->getCurrentLevel()->AddEntity(EntityTemplate::Find(entityName), _player->getPosition(), true)) {
 					break;
 				}
 				x++;
@@ -126,8 +130,9 @@ namespace glaze {
 			_player->ToggleGodmode();
 		}
 
-		void Console::Commands::SuperVision() {
-			_player->ToggleSuperVision();
+		void Console::Commands::Xray() {
+			_player->ToggleXray();
+			_level->SetAllVisible();
 		}
 
 		void Console::Commands::NoClip() {

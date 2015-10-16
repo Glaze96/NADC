@@ -11,6 +11,7 @@ namespace glaze {
 		class Console {
 		private: // Private fields
 			static Player* _player;
+			static Level* _level;
 			static std::vector<std::string> _commands;
 			static bool _initialized;
 
@@ -29,7 +30,7 @@ namespace glaze {
 				static void Add(const std::string& entityName, const int& num);
 				static void Spawn(const std::string& entityName, const int& num);
 				static void Godmode();
-				static void SuperVision();
+				static void Xray();
 				static void NoClip();
 				static void GoDown(const int& num);
 				static void GoUp(const int& num);

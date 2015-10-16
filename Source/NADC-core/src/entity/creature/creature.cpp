@@ -23,7 +23,7 @@ using namespace glibrary;
 
 			Vector2i newPosition = getPosition() + direction;
 
-			if (getLevel()->GetTile(newPosition).getType() == Tile::Type::Wall && !_noClip) {
+			if (getCurrentLevel()->GetTile(newPosition).getType() == Tile::Type::Wall && !_noClip) {
 				return false;
 			}
 

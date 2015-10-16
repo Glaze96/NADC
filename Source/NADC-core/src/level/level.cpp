@@ -75,7 +75,7 @@ namespace glaze {
 			catch (...) {
 				Log::AddMessage("Tried to get tile out of bounds!", Message::Type::Error);
 			}
-			return Tile('£', Tile::Type::Wall);
+			return _tiles.at(0).at(0);
 		}
 
 		std::vector<Vector2i> Level::GetTiles(const Tile::Type& tileType) const {

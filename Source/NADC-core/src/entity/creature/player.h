@@ -30,7 +30,7 @@ namespace glaze {
 			unsigned int _selection;
 
 			// Debug
-			bool _superVision;
+			bool _xray;
 			bool _godmode;
 
 
@@ -43,13 +43,13 @@ namespace glaze {
 			Menu								getMenu() const { return _currentMenu; }
 			const unsigned int&					getSelection() const { return _selection; }
 			const std::vector<EquipmentSlot>&	getEquipmentSlots() const { return _equipmentSlots; }
-			const bool&							getSuperVision() const { return _superVision; }
+			const bool&							getSuperVision() const { return _xray; }
 
 		public: // Public setters
 			void ChangeDrunkness(const float& value) { _drunkness < 0.0f ? _drunkness = 0.0f : _drunkness += value; }
 			
 		public:
-			bool ToggleSuperVision();
+			bool ToggleXray();
 			bool ToggleGodmode();
 
 		public: // Public methods

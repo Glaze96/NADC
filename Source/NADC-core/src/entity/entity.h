@@ -45,7 +45,7 @@ namespace glaze {
 			const Vector2i&		getPosition()		const { return _position; }
 			const int&			getId()				const { return _id; }
 			const bool&			getEquipped()		const { return _equipped; }
-			Level*				getLevel()			const { return _level; }
+			Level*				getCurrentLevel()			const { return _level; }
 			const bool&			getInInventory()	const { return _inInventory; }
 			const int&			getIdCounter()		const { _idCounter++; return _idCounter; }
 

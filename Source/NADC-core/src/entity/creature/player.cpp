@@ -18,7 +18,7 @@ namespace glaze {
 	namespace gengine {
 
 		Player::Player(const std::string&  name)
-			: Creature(name, 'P', Color::WHITE, 100.0f), _inventory(Inventory(34)), _currentMenu(Menu::Inv), _selection(0), _superVision(false) {
+			: Creature(name, 'P', Color::WHITE, 100.0f), _inventory(Inventory(34)), _currentMenu(Menu::Inv), _selection(0), _xray(false) {
 			setVisible(true);
 
 			GenerateEquipmentSlots();
@@ -117,15 +117,15 @@ namespace glaze {
 
 		}
 
-		bool Player::ToggleSuperVision() {
-			if (_superVision)
-				_superVision = false;
+		bool Player::ToggleXray() {
+			if (_xray)
+				_xray = false;
 			else
-				_superVision = true;
+				_xray = true;
 
-			Log::AddMessage("Supervision " + std::to_string(_superVision));
+			Log::AddMessage("Xray " + _xray ? "on" : "off");
 
-			return _superVision;
+			return _xray;
 		}
 
 		void Player::MakeAction(const Action& action) {

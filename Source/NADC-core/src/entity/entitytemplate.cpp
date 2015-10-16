@@ -118,7 +118,7 @@ namespace glaze {
 
 			float curve = (levelNumber / 20.0f) + 1.0f;
 			float chance = 0.0f;
-			int i = -1;
+			unsigned int i = -1;
 
 			try {
 				i++; chance += curve * 3.0f;		itemSources.at("Berries").setSpawnChance(chance);	
@@ -166,8 +166,7 @@ namespace glaze {
 
 		Entity* EntityTemplate::TryGetItem(const int& randomNumber) {
 			for (auto& spawnSource : itemSources) {
-				
-				if (spawnSource.second.getSpawnChance() < randomNumber) {
+				if (spawnSource.second.getSpawnChance() > randomNumber) {
 					return spawnSource.second.GetEntity();
 				}
 			}

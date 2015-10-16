@@ -27,7 +27,7 @@ namespace glaze {
 
 			lines += 2;
 
-			std::vector<Entity*> entities(player->getLevel()->GetEntitiesAtPosition(player->getPosition()));
+			std::vector<Entity*> entities(player->getCurrentLevel()->GetEntitiesAtPosition(player->getPosition()));
 			
 			if (entities.size() == 0) {
 				if (menu == Menu::TileInfo)
