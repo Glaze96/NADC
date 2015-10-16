@@ -7,8 +7,9 @@ namespace glaze {
 		private: // Fields
 			float _strength;
 		
-		public: // Constructors
+		public: // Con- & destructor's
 			LightSource(const std::string& name, const float& strength);
+			~LightSource() {}
 
 		public: // getters
 			const float& getStrength() const { return _strength; }

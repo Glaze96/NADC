@@ -13,12 +13,8 @@ using namespace glibrary;
 			const float& health, const float& totalDamage, const float& totalArmour)
 			: Entity(name, appearance, color),
 			_health(health), _maxHealth(health), _totalDamage(totalDamage), 
-			_totalArmour(totalArmour) {}
-
-
-
-
-
+			_totalArmour(totalArmour), _noClip(false), _invincible(false) {}
+		
 		void Creature::DoAction(Entity* entity, Player* player, const Action& action) {
 			entity->Interact(player);
 		}

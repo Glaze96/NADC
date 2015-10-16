@@ -103,7 +103,6 @@
     <ClInclude Include="src\glibrary\HeaderTemplate.h" />
     <ClInclude Include="src\glibrary\maths\constants.h" />
     <ClInclude Include="src\glibrary\maths\geometry.h" />
-    <ClInclude Include="src\glibrary\maths\vector.h" />
     <ClInclude Include="src\glibrary\maths\vector2.h" />
     <ClInclude Include="src\glibrary\system\system.h" />
     <ClInclude Include="src\glibrary\utils\timer.h" />
@@ -171,7 +170,6 @@
     <ClCompile Include="src\glibrary\graphics\color.cpp" />
     <ClCompile Include="src\glibrary\graphics\draw.cpp" />
     <ClCompile Include="src\glibrary\maths\geometry.cpp" />
-    <ClCompile Include="src\glibrary\maths\vector.cpp" />
     <ClCompile Include="src\glibrary\maths\vector2.cpp" />
     <ClCompile Include="src\glibrary\system\system.cpp" />
   </ItemGroup>

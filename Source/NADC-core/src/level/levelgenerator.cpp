@@ -31,7 +31,7 @@ namespace glaze {
 		void LevelGenerator::GenerateLevel(Level* level, const int& numberOfRooms) {
 
 			srand((unsigned int)time(nullptr) + rand());
-			
+
 			_level = level;
 
 			_level->Fill(Tile('#', Tile::Type::Wall));
@@ -46,7 +46,7 @@ namespace glaze {
 			if (size.x % 2 == 0)
 				size += 1;
 
-			// Cap size to 99, TODO: Fix hardcode
+			// Cap size to 99, TODO: Fix hard code
 			if (size.x > 99)
 				size = Vector2i(99);
 
@@ -206,7 +206,7 @@ namespace glaze {
 
 
 			if (newPosition3.x < _roomMask.Position.x ||
-				newPosition3.x > _roomMask.Size.x + _roomMask.Position.x - 1||
+				newPosition3.x > _roomMask.Size.x + _roomMask.Position.x - 1 ||
 				newPosition3.y < _roomMask.Position.y ||
 				newPosition3.y > _roomMask.Size.y + _roomMask.Position.y - 1) {
 				return false;
@@ -361,7 +361,7 @@ namespace glaze {
 		void LevelGenerator::SpawnEntities() {
 
 			for (Room& room : *_rooms) {
-				
+
 				for (int y = 0; y < room.getSize().y; y++) {
 					for (int x = 0; x < room.getSize().x; x++) {
 
@@ -370,13 +370,16 @@ namespace glaze {
 						int random = rand() % 10000;
 
 						Entity* item = EntityTemplate::TryGetItem(random);
-						if (item != nullptr)
+						if (item != nullptr) {
 							_level->AddEntity(item, position, true);
+							continue;
+						}
 
 						Entity* enemy = EntityTemplate::TryGetEnemy(random);
-						if (enemy != nullptr)
+						if (enemy != nullptr) {
 							_level->AddEntity(enemy, position, true);
-
+							continue;
+						}
 					}
 				}
 
@@ -402,7 +405,7 @@ namespace glaze {
 		}
 
 		Vector2i LevelGenerator::GetTileInRandomRoom() {
-			
+
 			int randomRoomNumber = rand() % _rooms->size();
 
 			Room room = _rooms->at(randomRoomNumber);
@@ -412,9 +415,9 @@ namespace glaze {
 			return GetWalkableTile(box);
 
 		}
-
 	} // End namespace gengine
 } // End namespace glaze
+
 
   //void LevelGenerator::MarkWalls() {
   //	
@@ -422,7 +425,7 @@ namespace glaze {
   //		for (int x = 1; x < _roomMask.Size.x - 1; x++) {
 
   //			if (_level->GetTile(_roomMask.Position.x + x, _roomMask.Position.y + y).getType() == Tile::TileType::Floor) {
-  //				for (Vector2i& direction : eightway) {
+  //				for (Vector2i& direction : eight way) {
 
   //					Vector2i pos = Vector2i(_roomMask.Position.x + x + direction.x, _roomMask.Position.y + y + direction.y);
 

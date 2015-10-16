@@ -21,7 +21,7 @@ namespace glaze {
 			Type _type;
 			bool _visible;
 
-		public: // 'structors		
+		public: // Con- & destructor's	
 			Tile(const char& appearance, const Type& type);
 			~Tile() { }
 

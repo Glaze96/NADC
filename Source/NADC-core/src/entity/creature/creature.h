@@ -26,7 +26,7 @@ namespace glaze {
 			bool _noClip;
 			bool _invincible;
 
-		protected: // 'structors
+		protected: // Con- & destructor's
 			Creature(const std::string& name, const char& appearance, const int& color = Color::WHITE, const float& health = 100.0f, const float& totalDamage = 0.0f, const float& totalArmour = 0.0f);
 			~Creature() {}
 

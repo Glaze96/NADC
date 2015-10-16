@@ -13,16 +13,16 @@ namespace glaze {
 		class SoundManager {
 		private: // Private fields
 			static irrklang::ISoundEngine *_engine;
-			static std::vector<Playlist*> _playlists;
+			static std::vector<PlayList*> _playLists;
 
 		private: // 'structors
 			SoundManager() { }
 
 		public: // Public methods
 			static void Init();
-			void InitPlaylists();
-			static void AddPlayList(Playlist *playlist);
-			static Playlist* GetPlaylist(const std::string &name);
+			void InitPlayLists();
+			static void AddPlayList(PlayList *playlist);
+			static PlayList* GetPlayList(const std::string &name);
 			static void Update();
 			static void Clean();
 

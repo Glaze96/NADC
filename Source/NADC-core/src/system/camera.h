@@ -13,7 +13,7 @@ namespace glaze {
 			Vector2i _screenPosition;
 			Vector2i _size;
 
-		public: // Public con -& destructors
+		public: // Public con -& destructor's
 			Camera() {}
 			Camera(const Vector2i& worldPosition, const Vector2i& screenPosition, const Vector2i& size);
 			~Camera() {}

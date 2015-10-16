@@ -11,7 +11,7 @@
 namespace glaze {
 	namespace gengine {
 
-		Item::Item(const std::string& name, const ItemType& itemType)
+		Item::Item(const std::string& name, const Type& itemType)
 			: Entity(name, 'I', Color::YELLOW), _itemType(itemType) { }
 
 		void Item::DoAction(Entity* entity, Player* player, const Action& action) {
@@ -55,7 +55,7 @@ namespace glaze {
 
 			// Add to inventory
 			if (player->getInventory()->AddEntity(copyOfItem)) {
-				// Destroy item in level, if successfully addded to inventory
+				// Destroy item in level, if successfully added to inventory
 				_level->DestroyEntity(this);
 			}
 		}
@@ -104,44 +104,44 @@ namespace glaze {
 
 			switch (_itemType) {
 
-			case ItemType::Hand:
+			case Type::Hand:
 			{
 				return "Hand";
 			}
-			case ItemType::Head:
+			case Type::Head:
 			{
 				return "Head";
 			}
-			case ItemType::Neck:
+			case Type::Neck:
 			{
 				return "Neck";
 			}
-			case ItemType::Torso:
+			case Type::Torso:
 			{
 				return "Torso";
 			}
-			case ItemType::Legs:
+			case Type::Legs:
 			{
 				return "Legs";
 			}
-			case ItemType::Hands:
+			case Type::Hands:
 			{
 				return "Hands";
 			}
-			case ItemType::Feet:
+			case Type::Feet:
 			{
 				return "Feet";
 			}
-			case ItemType::Consumable:
+			case Type::Consumable:
 			{
 				return "Consumable";
 			}
-			case ItemType::Key:
+			case Type::Key:
 			{
 				return "Key";
 			}
 			default: {
-				return "ASFDDFG%G¤G";
+				return "ERR";
 			}
 			}
 		}

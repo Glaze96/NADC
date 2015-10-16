@@ -7,12 +7,8 @@
 namespace glaze {
 	namespace gengine {
 
-		EquipmentSlot::EquipmentSlot(const std::string& name, const ItemType& type) {
-			_name = name;
-			_itemType = type;
-			_full = false;
-			_item = nullptr;
-		}
+		EquipmentSlot::EquipmentSlot(const std::string& name, const Item::Type& type)
+		:	_name(name), _itemType(type), _item(nullptr), _full(false) { }
 
 		std::string EquipmentSlot::GetNameAndItem() const {
 			

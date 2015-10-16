@@ -34,7 +34,7 @@ namespace glaze {
 			bool _godmode;
 
 
-		public: // Con -& destructors
+		public: // Con -& destructor's
 			explicit Player(const std::string& name);
 			~Player() {}
 

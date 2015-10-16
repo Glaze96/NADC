@@ -35,9 +35,10 @@ namespace glaze {
 			int			_id;
 			static int	_idCounter;
 
-		public: // 'structors
+		public: // Con- & destructor's
+			
 			Entity(const std::string& name, const char& appearance, const int& color);
-			virtual ~Entity() { }
+			virtual ~Entity() {}
 
 		public: // getters
 			const std::string&	getName()			const { return _name; }
@@ -62,8 +63,8 @@ namespace glaze {
 		public: // Public methods
 			void			Draw() const;
 			virtual void	PrintStats(const Vector2i& position, unsigned int& lines);
-			virtual void	DoAction(Entity* entity, Player* player, const Action& action) { Log::AddMessage("Unimplimented action"); }
-			virtual void	Interact(Player* player) { Log::AddMessage("Unimplimented interaction"); }
+			virtual void	DoAction(Entity* entity, Player* player, const Action& action) { Log::AddMessage("Unimplemented action"); }
+			virtual void	Interact(Player* player) { Log::AddMessage("Unimplemented interaction"); }
 
 			virtual Entity* clone() const { return new Entity(*this); }
 			virtual Entity* newClone() { setId(getIdCounter()); return new Entity(*this); }

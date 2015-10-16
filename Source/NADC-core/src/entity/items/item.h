@@ -10,29 +10,32 @@
 namespace glaze {
 	namespace gengine {
 
-		enum ItemType {
-			Error,
-			Hand,
-			Head,
-			Neck,
-			Torso,
-			Hands,
-			Legs,
-			Feet,
-			Consumable,
-			Key
-		};
+
 
 		class Item : public Entity {
+		public:
+			enum Type {
+				Error,
+				Hand,
+				Head,
+				Neck,
+				Torso,
+				Hands,
+				Legs,
+				Feet,
+				Consumable,
+				Key
+			};
+
 		protected:
-			ItemType _itemType;
+			Type _itemType;
 
 		public: 
-			explicit Item(const std::string& name, const ItemType& itemType = ItemType::Error);
+			explicit Item(const std::string& name, const Type& itemType = Error);
 			~Item() { }
 
 		public: // Public getters
-			const ItemType& getItemType() const { return _itemType; }
+			const Type& getItemType() const { return _itemType; }
 
 		public: // Public methods
 			std::string GetItemTypeName() const;

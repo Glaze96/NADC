@@ -11,7 +11,7 @@ namespace glaze {
 	//using namespace glibrary;
 	namespace gengine {
 
-		Equipment::Equipment(const std::string& name, const float& damage, const float& armour, const ItemType& itemType)
+		Equipment::Equipment(const std::string& name, const float& damage, const float& armour, const Type& itemType)
 			: Item(name, itemType), _damage(damage), _armour(armour), _levelRequirement(0) {
 		}
 
@@ -52,4 +52,4 @@ namespace glaze {
 		}
 
 	} // End namespace gengine
-} // End namespace gla
+} // End namespace glaze

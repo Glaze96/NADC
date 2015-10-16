@@ -12,7 +12,7 @@ namespace glaze {
 
 		class ShopKeeper : public Creature {
 
-		public: // Public con -& destructors
+		public: // Public con -& destructor's
 			explicit ShopKeeper(const std::string& name);
 			~ShopKeeper() { }
 

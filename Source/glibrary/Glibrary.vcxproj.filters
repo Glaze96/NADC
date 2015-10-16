@@ -204,9 +204,6 @@
     <ClCompile Include="src\glibrary\console\message.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glibrary\maths\vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\curses\term.h">
@@ -273,9 +270,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\glibrary\console\message.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\glibrary\maths\vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\glibrary\utils\utils.h">

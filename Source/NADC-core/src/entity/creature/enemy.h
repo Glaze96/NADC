@@ -22,7 +22,7 @@ namespace glaze {
 		private:
 			AIState _aiState;
 
-		public: // Constructors
+		public: // Con- & destructor's
 			Enemy(const std::string& name, const float& totalDamage, const float& totalArmour, const float& health);
 			~Enemy() { }
 

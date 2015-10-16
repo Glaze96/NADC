@@ -10,8 +10,8 @@ namespace glaze {
 		public: // Public fields
 			Player* _player;
 
-		public: // Public constructors
-			PlayerAttackedEvent(Player* player);
+		public: // Con- & destructor's
+			explicit PlayerAttackedEvent(Player* player);
 		};
 
 	} // End namespace gengine

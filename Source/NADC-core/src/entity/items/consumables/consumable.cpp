@@ -12,7 +12,7 @@ namespace glaze {
 		
 		Consumable::Consumable(const std::string& name)
 			: Item(name) {
-			_itemType = ItemType::Consumable;
+			_itemType = Type::Consumable;
 		}
 
 		void Consumable::PrintStats(const Vector2i&  position, unsigned int& lines) {
@@ -25,4 +25,4 @@ namespace glaze {
 		}
 
 	} // End namespace gengine
-} // End namespace gla
+} // End namespace glaze

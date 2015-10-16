@@ -14,7 +14,7 @@ namespace glaze {
 		private:
 			bool _up;
 
-		public: // Public con -& destructors
+		public: // Public con -& destructor's-
 			Stairs(const std::string& name, const char& appearance, const bool& up);
 			~Stairs() { }
 

@@ -14,7 +14,7 @@ namespace glaze {
 			static std::vector<std::string> _commands;
 			static bool _initialized;
 
-		private: // 'structors
+		private: // Con- & destructor's
 			Console() {}
 			~Console() {}
 

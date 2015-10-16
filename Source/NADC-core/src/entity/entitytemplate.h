@@ -13,9 +13,9 @@ namespace glaze {
 		class EntityTemplate {
 
 		private: // Fields
-			static std::map<std::string, SpawnSource> itemS;
-			static std::map<std::string, SpawnSource> enemyS;
-			static std::map<std::string, SpawnSource> specialItemS;
+			static std::map<std::string, SpawnSource> itemSources;
+			static std::map<std::string, SpawnSource> enemySources;
+			static std::map<std::string, SpawnSource> specialItemSources;
 
 		private:
 			EntityTemplate() { }

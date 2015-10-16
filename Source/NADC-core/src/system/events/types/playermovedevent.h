@@ -14,8 +14,9 @@ namespace glaze {
 			glibrary::Vector2i _fromPosition;
 			glibrary::Vector2i _toPosition;
 
-		public: // Public constructors
+		public: // Con- & destructor's
 			PlayerMovedEvent(Player* player, const glibrary::Vector2i& fromPosition, const glibrary::Vector2i& toPosition);
+			~PlayerMovedEvent() {}
 		};
 
 	} // End namespace gengine

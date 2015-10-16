@@ -5,7 +5,7 @@ namespace glaze {
 		LightSource::LightSource(const std::string& name, const float& strength) 
 		: Item(name) {
 			_strength = strength;
-			_itemType = ItemType::Hand;
+			_itemType = Type::Hand;
 		}
 	}
 }

@@ -192,6 +192,7 @@
     <ClInclude Include="src\system\events\eventhandler.h" />
     <ClInclude Include="src\system\events\types\playermovedevent.h" />
     <ClInclude Include="src\system\events\types\playerattackedevent.h" />
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">

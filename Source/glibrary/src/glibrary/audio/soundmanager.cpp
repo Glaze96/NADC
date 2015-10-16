@@ -8,46 +8,46 @@ namespace glaze {
 	namespace glibrary {
 
 		ISoundEngine*				SoundManager::_engine;
-		std::vector<Playlist*>		SoundManager::_playlists;
+		std::vector<PlayList*>		SoundManager::_playLists;
 
-		void SoundManager::InitPlaylists() {
-			AddPlayList(new Playlist("Background music", true, "BGMusic/BGMusic", 7));
-			AddPlayList(new Playlist("Hellos", false, "Hello/Hello", 4));
-			AddPlayList(new Playlist("Ouches", false, "Ouch/Ouch", 3));
+		void SoundManager::InitPlayLists() {
+			AddPlayList(new PlayList("Background music", true, "BGMusic/BGMusic", 7));
+			AddPlayList(new PlayList("Hellos", false, "Hello/Hello", 4));
+			AddPlayList(new PlayList("Ouches", false, "Ouch/Ouch", 3));
 		}
 
 		void SoundManager::Init() { 
 			_engine = createIrrKlangDevice();
 			if (_engine != nullptr)
-				Log::AddMessage("Succsessfully initialized sound engine", Message::Type::Success);
+				Log::AddMessage("Successfully initialized sound engine", Message::Type::Success);
 			else
 				Log::AddMessage("Failed to initialized sound engine", Message::Type::Error);
 		}
 
-		void SoundManager::AddPlayList(Playlist *playlist) { 
-			_playlists.push_back(playlist);
+		void SoundManager::AddPlayList(PlayList *playlist) { 
+			_playLists.push_back(playlist);
 		}
 
-		Playlist *SoundManager::GetPlaylist(const std::string &name) {
-			for (Playlist *playlist : _playlists) {
+		PlayList *SoundManager::GetPlayList(const std::string &name) {
+			for (PlayList *playlist : _playLists) {
 				if (playlist->getName() == name) {
 					return playlist;
 				}
 			}
-			Log::AddMessage("Could not find playlist '" + name + "'", Message::Type::Warning);
+			Log::AddMessage("Could not find play list '" + name + "'", Message::Type::Warning);
 			return nullptr;
 		}
 
 		void SoundManager::Update() { 
-			for (Playlist *playlist : _playlists) {
+			for (PlayList *playlist : _playLists) {
 				playlist->Update();
 			}
 		}
 
 		void SoundManager::Clean() { 
-			for (unsigned int i = 0; i < _playlists.size(); i++) {
-				delete _playlists[i];
-				_playlists.erase(_playlists.begin() + i);
+			for (unsigned int i = 0; i < _playLists.size(); i++) {
+				delete _playLists[i];
+				_playLists.erase(_playLists.begin() + i);
 
 			}
 			_engine->drop();

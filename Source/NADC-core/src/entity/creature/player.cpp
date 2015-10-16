@@ -28,14 +28,14 @@ namespace glaze {
 		}
 
 		void Player::GenerateEquipmentSlots() {
-			_equipmentSlots.push_back(EquipmentSlot("Right hand", ItemType::Hand));
-			_equipmentSlots.push_back(EquipmentSlot("Left hand", ItemType::Hand));
-			_equipmentSlots.push_back(EquipmentSlot("Head", ItemType::Head));
-			_equipmentSlots.push_back(EquipmentSlot("Neck", ItemType::Neck));
-			_equipmentSlots.push_back(EquipmentSlot("Torso", ItemType::Torso));
-			_equipmentSlots.push_back(EquipmentSlot("Hands", ItemType::Hands));
-			_equipmentSlots.push_back(EquipmentSlot("Legs", ItemType::Legs));
-			_equipmentSlots.push_back(EquipmentSlot("Feet", ItemType::Feet));
+			_equipmentSlots.push_back(EquipmentSlot("Right hand",	Item::Type::Hand));
+			_equipmentSlots.push_back(EquipmentSlot("Left hand",	Item::Type::Hand));
+			_equipmentSlots.push_back(EquipmentSlot("Head",			Item::Type::Head));
+			_equipmentSlots.push_back(EquipmentSlot("Neck",			Item::Type::Neck));
+			_equipmentSlots.push_back(EquipmentSlot("Torso",		Item::Type::Torso));
+			_equipmentSlots.push_back(EquipmentSlot("Hands",		Item::Type::Hands));
+			_equipmentSlots.push_back(EquipmentSlot("Legs",			Item::Type::Legs));
+			_equipmentSlots.push_back(EquipmentSlot("Feet",			Item::Type::Feet));
 		}
 
 		void Player::SelectionDown() {
@@ -47,7 +47,7 @@ namespace glaze {
 					_selection = 0;
 			}
 			else {
-				if (_selection > _level->GetNumEntitiesAtPosition(getPosition()) - 1) //TODO: fix hardcode
+				if (_selection > _level->GetNumEntitiesAtPosition(getPosition()) - 1)
 					_selection = 0;
 			}
 		}
@@ -79,7 +79,7 @@ namespace glaze {
 
 		void Player::Equip(Item* item) {
 
-			ItemType type = item->getItemType();
+			Item::Type type = item->getItemType();
 
 			for (auto& eqSlot : _equipmentSlots) {
 				if (type == eqSlot.getItemType()) {
@@ -304,7 +304,7 @@ namespace glaze {
 
 			if (_drunkness > 0.0f) {
 				lines++;
-				Out::PrintlnAt(position.x + 2, position.y + lines, "Drunkness: %.1f%%", _drunkness * 100);
+				Out::PrintlnAt(position.x + 2, position.y + lines, "Drunkenness: %.1f%%", _drunkness * 100);
 			}
 
 		}

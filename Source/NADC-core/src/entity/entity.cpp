@@ -6,7 +6,6 @@
 
 // Gengine includes
 #include "creature/player.h"
-#include "../level/levelgenerator.h"
 #include "../system/events/types/playermovedevent.h"
 
 namespace glaze {
@@ -27,7 +26,7 @@ namespace glaze {
 			Out::PrintlnAt(position.x + 2, position.y + lines, "Name: %s", _name.c_str());
 
 			lines++;
-			Out::PrintlnAt(position.x + 2, position.y + lines, "In iventory: %s", _inInventory ? "true" : "false");
+			Out::PrintlnAt(position.x + 2, position.y + lines, "In inventory: %s", _inInventory ? "true" : "false");
 
 			lines++;
 			Out::PrintlnAt(position.x + 2, position.y + lines, "Equipped: %s", _equipped ? "true" : "false");

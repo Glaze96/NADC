@@ -13,7 +13,7 @@ namespace glaze {
 			player->ChangeDrunkness(_alcohol / 100.0f);
 			player->Heal(_healthPoints);
 
-			player->getInventory()->AddEntity(new Equipment("Empty bottle", 1, 0, ItemType::Hand));
+			player->getInventory()->AddEntity(new Equipment("Empty bottle", 1, 0, Type::Hand));
 			player->getInventory()->Destroy(this);
 		}
 

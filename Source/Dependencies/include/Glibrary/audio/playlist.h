@@ -10,7 +10,7 @@ using namespace irrklang;
 namespace glaze {
 	namespace glibrary {
 
-		class Playlist {
+		class PlayList {
 		private: // Private fields
 			std::string _name;
 			bool _looping;
@@ -21,10 +21,10 @@ namespace glaze {
 			std::vector<Sound*> _sounds;
 
 		public:
-			Playlist();
-			Playlist(const std::string& name, const bool& looping, const std::string& filename, const int& num);
-			Playlist(const std::string& name, const bool& looping, std::vector<Sound*> sounds);
-			~Playlist();
+			PlayList();
+			PlayList(const std::string& name, const bool& looping, const std::string& filename, const int& num);
+			PlayList(const std::string& name, const bool& looping, std::vector<Sound*> sounds);
+			~PlayList();
 
 		public: // Public getters
 			std::string getName() const { return _name; }

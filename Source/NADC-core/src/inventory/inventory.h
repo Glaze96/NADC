@@ -15,7 +15,7 @@ namespace glaze {
 			unsigned int _numItems;
 			unsigned int _maxSize;
 
-		public: // Public con -& destructors
+		public: // Public con -& destructor's
 			explicit Inventory(const int& maxSize);
 			~Inventory();
 

@@ -5,28 +5,24 @@ namespace glaze {
 	namespace gengine {
 		
 		class SpawnSource {
-		// fields
-		private:
+		private: // Private fields
 			Entity* _entity;
 			std::string _name;
 			float _spawnChance;
 
-		// 'structors
-		public:
+		public: // Con- & destructor's
 			explicit SpawnSource(Entity* entity, SpawnSource* lastSpawnSource = nullptr, const float& spawnChance = 0.0f);
-
-		// getters
-		public:
+			~SpawnSource() {}
+		
+		public: // getters
 			const std::string&	getName()			const { return _name; }
 			const float&		getSpawnChance()	const { return _spawnChance; }
 
-		// setters
-		public:
-			void setSpawnChance(const float& value) { _spawnChance = value; }
-
-		// Getters
-		public:
+		public: // Getters
 			Entity* GetEntity() const;
+
+		public: // setters
+			void setSpawnChance(const float& value) { _spawnChance = value; }
 
 		};
 

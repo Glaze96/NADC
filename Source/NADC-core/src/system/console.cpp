@@ -24,10 +24,10 @@ namespace glaze {
 			_commands.push_back("SPAWN 'integer(optional)' 'name of entity'; spawns entity at player position");
 			_commands.push_back("ADD 'integer(optional)' 'name of entity'; add entity to inventory");
 			_commands.push_back("GODMODE; toggles godmode");
-			_commands.push_back("SUPERVISION; toggles supervision (sets all tiles visible)");
+			_commands.push_back("ALLVISIBLE; toggles supervision (sets all tiles visible)");
 			_commands.push_back("NOCLIP; toggles noclip");
-			_commands.push_back("DOWN; goes down one level");
-			_commands.push_back("UP; moves player up one level");
+			_commands.push_back("DOWN/ D 'integer(optional)'; goes down one level");
+			_commands.push_back("UP/ U 'integer(optional)'; moves player up one level");
 		}
 
 		void Console::Input(Player* player) {
@@ -35,8 +35,8 @@ namespace glaze {
 		}
 
 		void Console::RunCommand(const std::string& fullCommand, Player* player) {
-			if (fullCommand== "")
-				return;
+			
+			if (fullCommand== "") return;
 
 			if (_player == nullptr)
 				_player = player;
@@ -45,15 +45,12 @@ namespace glaze {
 			int num = 0;
 
 			std::stringstream(fullCommand) >> command >> num >> entityName; // Split command into its components
-
-
-
+			
+			// If integer is not defined default to 1
 			if (num <= 0) {
 				num = 1;
 				std::stringstream(fullCommand) >> command >> entityName; // Split command into its components
 			}
-
-
 
 			if (command == "add") {
 				Commands::Add(entityName, num);
@@ -70,7 +67,7 @@ namespace glaze {
 				return;
 			}
 
-			if (command == "supervision") {
+			if (command == "allvisible") {
 				Commands::SuperVision();
 				return;
 			}
@@ -80,12 +77,12 @@ namespace glaze {
 				return;
 			}
 
-			if (command == "down") {
+			if (command == "down" || command == "d") {
 				Commands::GoDown(num);
 				return;
 			}
 
-			if (command == "up") {
+			if (command == "up" || command == "u") {
 				Commands::GoUp(num);
 				return;
 			}

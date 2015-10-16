@@ -18,7 +18,7 @@ namespace glaze {
 			static int _numLevels;
 			static int _currentLevelNumber;
 
-		private: // Con- & destructors
+		private: // Con- & destructor's
 			LevelManager() {}
 			~LevelManager() {}
 

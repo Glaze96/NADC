@@ -12,16 +12,16 @@ namespace glaze {
 		class EquipmentSlot  {
 		private: // Private fields
 			std::string _name;
+			Item::Type _itemType;
 			Item* _item;
-			ItemType _itemType;
 			bool _full;
 
 		public:
-			EquipmentSlot(const std::string& name, const ItemType& type);
+			EquipmentSlot(const std::string& name, const Item::Type& type);
 		
 		public: // Public getters
 			Item* getItem() const { return _item; }
-			ItemType getItemType() const { return _itemType; }
+			Item::Type getItemType() const { return _itemType; }
 			bool getFull() const { return _full; }
 
 		public: // Public Getters

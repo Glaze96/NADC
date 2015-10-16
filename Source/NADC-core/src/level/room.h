@@ -14,7 +14,7 @@ namespace glaze {
 			Vector2i _position;
 			Vector2i _size;
 
-		public: // Public con -& destructors
+		public: // Public con -& destructor's
 			Room(const Vector2i& position, const Vector2i& size);
 			~Room() { }
 

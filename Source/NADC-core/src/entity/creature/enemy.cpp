@@ -34,7 +34,7 @@ namespace glaze {
 		}
 
 		void Enemy::Interact(Player* player) {
-			SoundManager::GetPlaylist("Ouches")->PlayRandom(true);
+			SoundManager::GetPlayList("Ouch")->PlayRandom(true);
 			player->Damage(_totalDamage);
 			Damage(player->getTotalDamage());
 		}

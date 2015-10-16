@@ -23,7 +23,7 @@ using namespace glibrary;
 		}
 
 		void ShopKeeper::Interact(Player* player) {
-			SoundManager::GetPlaylist("Hellos")->PlayRandom(true);
+			SoundManager::GetPlayList("Hello")->PlayRandom(true);
 		}
 
 

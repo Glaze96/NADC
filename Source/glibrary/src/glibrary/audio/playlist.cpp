@@ -7,12 +7,12 @@ using namespace irrklang;
 namespace glaze {
 	namespace glibrary {
 
-		Playlist::Playlist() 
+		PlayList::PlayList() 
 			: _isPlaying(false), _currentTrackNumber(0), _numTracks(0) {
 		}
 
-		Playlist::Playlist(const std::string& name, const bool& looping, const std::string& filename, const int& num)
-		: Playlist() {
+		PlayList::PlayList(const std::string& name, const bool& looping, const std::string& filename, const int& num)
+		: PlayList() {
 
 			Log::AddMessage("Created playlist '" + name + "'; added '" + std::to_string(num) + "' sounds");
 			
@@ -24,8 +24,8 @@ namespace glaze {
 
 		}
 
-		Playlist::Playlist(const std::string& name, const bool& looping, std::vector<Sound*> sounds)
-			: Playlist() {
+		PlayList::PlayList(const std::string& name, const bool& looping, std::vector<Sound*> sounds)
+			: PlayList() {
 
 			Log::AddMessage("Created playlist '" + name + "'");
 
@@ -35,26 +35,26 @@ namespace glaze {
 			Add(sounds);
 		}
 
-		Playlist::~Playlist() {
+		PlayList::~PlayList() {
 			for (auto& sound : _sounds)
 				delete sound;
 
 			_sounds.clear();
 		}
 
-		void Playlist::Toggle() {
+		void PlayList::Toggle() {
 			if (_isPlaying)
 				Pause();
 			else
 				Resume();
 		}
 
-		void Playlist::Start() {
+		void PlayList::Start() {
 			Log::AddMessage("Starting playlist '" + _name + "'");
 			Play(0);
 		}
 
-		void Playlist::Play(const int& index) {
+		void PlayList::Play(const int& index) {
 
 			if (index < _numTracks) {
 				_currentSound = _sounds.at(index);
@@ -67,7 +67,7 @@ namespace glaze {
 			}
 		}
 
-		void Playlist::Play(const std::string& name) {
+		void PlayList::Play(const std::string& name) {
 			int index = 0;
 			for (auto& sound : _sounds) {
 				if (sound->GetName() == name) {
@@ -82,16 +82,16 @@ namespace glaze {
 			Log::AddMessage("Could not find sound '" + name + "' in playlist '" + _name + "'", Message::Type::Warning);
 		}
 
-		void Playlist::Add(std::vector<Sound*> sounds, const bool& supressLog) {
+		void PlayList::Add(std::vector<Sound*> sounds, const bool& supressLog) {
 			for (auto& sound : sounds)
 				Add(sound, supressLog);
 		}
 
-		void Playlist::Add(const std::string& filename, const bool& supressLog) {
+		void PlayList::Add(const std::string& filename, const bool& supressLog) {
 			Add(new Sound(filename, filename), supressLog);
 		}
 
-		void Playlist::Add(Sound* sound, const bool& supressLog) {
+		void PlayList::Add(Sound* sound, const bool& supressLog) {
 			_numTracks++;
 			_sounds.push_back(sound);
 			
@@ -100,7 +100,7 @@ namespace glaze {
 		}
 
 
-		void Playlist::Stop() {
+		void PlayList::Stop() {
 			if (_currentSound != nullptr) {
 				_currentSound->Stop();
 				_currentSound = nullptr;
@@ -110,7 +110,7 @@ namespace glaze {
 			}
 		}
 
-		void Playlist::Pause() {
+		void PlayList::Pause() {
 			if (_currentSound != nullptr) {
 				_currentSound->Pause();
 				_isPlaying = false;
@@ -119,7 +119,7 @@ namespace glaze {
 			}
 		}
 
-		void Playlist::Resume() {
+		void PlayList::Resume() {
 			if (_currentSound != nullptr) {
 
 				Log::AddMessage("Resuming playlist '" + _name + "'");
@@ -129,7 +129,7 @@ namespace glaze {
 			}
 		}
 
-		void Playlist::PlayNext() {
+		void PlayList::PlayNext() {
 			Stop();
 
 			_currentTrackNumber++;
@@ -143,7 +143,7 @@ namespace glaze {
 			Play(_currentTrackNumber);
 		}
 
-		void Playlist::PlayRandom(const bool& notSame) {
+		void PlayList::PlayRandom(const bool& notSame) {
 			Stop();
 
 			int randomNumber = 0;
@@ -160,7 +160,7 @@ namespace glaze {
 			Play(randomNumber);
 		}
 
-		Sound* Playlist::GetSound(const std::string& name) const {
+		Sound* PlayList::GetSound(const std::string& name) const {
 			for (Sound *sound : _sounds) {
 				if (sound->GetName() == name) {
 					return sound;
@@ -172,7 +172,7 @@ namespace glaze {
 			return nullptr;
 		}
 
-		void Playlist::Update() {
+		void PlayList::Update() {
 			if (_looping) {
 				if (_currentSound != nullptr) {
 					if (_currentSound->GetSound()->isFinished()) {

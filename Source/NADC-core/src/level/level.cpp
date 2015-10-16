@@ -8,7 +8,6 @@
 #include "../entity/items/equipment.h"
 #include "levelgenerator.h"
 #include "levelmanager.h"
-#include <assert.h>
 
 namespace glaze {
 	using namespace glibrary;
@@ -29,11 +28,11 @@ namespace glaze {
 				_tiles.push_back(std::vector<Tile>(_size.y, tile));
 		}
 
-		const unsigned& Level::GetNumEntitiesAtPosition(const Vector2i& position) const {
+		unsigned Level::GetNumEntitiesAtPosition(const Vector2i& position) const {
 			return GetNumEntitiesAtPosition(position.x, position.y);
 		}
 
-		const unsigned& Level::GetNumEntitiesAtPosition(const int& x, const int& y) const {
+		unsigned Level::GetNumEntitiesAtPosition(const int& x, const int& y) const {
 			return GetEntitiesAtPosition(x, y).size();
 		}
 
@@ -42,7 +41,6 @@ namespace glaze {
 		}
 
 		void Level::SetTile(const unsigned int& x, const unsigned int& y, const Tile& tile) {
-
 			try {
 				_tiles.at(x).at(y) = tile;
 			}

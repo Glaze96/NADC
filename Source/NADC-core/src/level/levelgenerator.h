@@ -16,15 +16,14 @@ namespace glaze {
 	namespace gengine {
 
 		class LevelGenerator {
-		private:
+		private: // Private fields
 			static Level* _level;
 			static Vector2i _levelSize;
 			static Boxi _roomMask;
 			static std::vector<Room>* _rooms;
 			static float _windingPrecent;
 
-		public:
-			// Public methods
+		public: // Public methods
 			static void GenerateLevel(Level *level, const int& numberOfRooms);
 
 		private: // Private methods

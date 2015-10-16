@@ -14,7 +14,7 @@ namespace glaze {
 			int _levelRequirement;
 
 		public:
-			Equipment(const std::string& name, const float& damage, const float& armour, const ItemType& itemType);
+			Equipment(const std::string& name, const float& damage, const float& armour, const Type& itemType);
 			~Equipment() { }
 
 		public: // Public getters
