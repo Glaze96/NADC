@@ -17,6 +17,7 @@ namespace glaze {
 		class Enemy;
 		class Consumable;
 		class Player;
+		class Item;
 
 		class Level {
 		private:
@@ -25,15 +26,27 @@ namespace glaze {
 			
 			std::vector<std::vector<Tile>> _tiles;
 			std::vector<Entity*> _entities;
+
+			std::vector<Enemy*> _enemies;
+			std::vector<Item*> _items;
+			std::vector<Entity*> _other;
 			
 			EventHandler _eventHandler;
 
 			unsigned int _numEntities;
 			unsigned int _numEntitiesAtPosition;
 
-
 		public: // Con- & destructor's
-			Level(const Vector2i& size, const bool& allVisible);
+			Level(const Vector2i& size);
+
+		public: // getters
+			const Vector2i& getSize() const			{ return _size; }
+			const int&		getLevelNumber() const	{ return _levelNumber; }
+			EventHandler&	getEventHandler()		{ return _eventHandler; }
+
+		public: // Setters
+			void SetTile(const Vector2i& position, const Tile& tile);
+			void SetTile(const unsigned& x, const unsigned& y, const Tile& tile);
 
 		public: // Getters
 			unsigned int			GetNumEntitiesAtPosition(const Vector2i& position) const;
@@ -46,16 +59,7 @@ namespace glaze {
 			Entity*					GetStairsDown() const;
 			Entity*					GetStairsUp() const;
 
-		public: // getters
-			const Vector2i& getSize() const			{ return _size; }
-			const int&		getLevelNumber() const	{ return _levelNumber; }
-			EventHandler&	getEventHandler()		{ return _eventHandler; }
-
-		public: // Setters
-			void SetTile(const Vector2i& position, const Tile& tile);
-			void SetTile(const unsigned& x, const unsigned& y, const Tile& tile);
-
-		public: // Methods
+		public: // Public methods
 			void Fill(const Tile& tile);
 			void SetTileVisible(const Vector2i& position);
 			void SetTileVisible(const int& x, const int& y);
@@ -65,8 +69,9 @@ namespace glaze {
 
 			void Draw() const;
 
-		private:
+		private: // Private methods
 			void DrawLevel() const;
+			void UpdateCollections();
 
 		};
 

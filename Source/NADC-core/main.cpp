@@ -25,19 +25,20 @@ private:
 
 	// Runs at start of program
 	void Init() override {
+
 		Console::Init();
 		EntityTemplate::Init();
+
+		player = new Player("Edward");
+		LevelManager::Init(player);
+
+		gameWindowSize = Vector2i(99, 99);
+		UIManager::Init(gameWindowSize.x, gameWindowSize.y, 51);
 		
 		SoundManager::AddPlayList(new PlayList("Ouch", false, "Ouch/Ouch", 3));
 		SoundManager::AddPlayList(new PlayList("Hello", false, "Hello/Hello", 4));
 		SoundManager::AddPlayList(new PlayList("BGMusic", true, "BGMusic/BGMusic", 7));
-
-		player = new Player("Edward");
-		LevelManager::GoDown(player);
-
-		gameWindowSize = Vector2i(99, 99);
-
-		UIManager::Init(gameWindowSize.x, gameWindowSize.y, 51);
+		
 	}
 
 

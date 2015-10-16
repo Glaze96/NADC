@@ -48,14 +48,8 @@ namespace glaze {
 		}
 
 		void Entity::Draw() const {
-
-			if (_visible) {
-				Color::SetColor(_color);
-
+			if (_visible)
 				Out::PrintchAt(_position.x, _position.y, _appearance);
-
-				Color::ResetColor();
-			}
 		}
 
 		bool Entity::CanSeePlayer(const Vector2i& playerPosition) const {

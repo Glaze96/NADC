@@ -84,9 +84,8 @@ namespace glaze {
 			for (auto& eqSlot : _equipmentSlots) {
 				if (type == eqSlot.getItemType()) {
 
-					if (eqSlot.getFull()) {
+					if (eqSlot.getFull())
 						eqSlot.UnEquip();
-					}
 
 					eqSlot.Equip(item);
 					item->setEquipped(true);
@@ -123,7 +122,7 @@ namespace glaze {
 			else
 				_xray = true;
 
-			Log::AddMessage("Xray " + _xray ? "on" : "off");
+			Log::AddMessage(_xray ? "Xray on" : "Xray off");
 
 			return _xray;
 		}
@@ -162,6 +161,7 @@ namespace glaze {
 
 
 			for (float angle = 0.0f; angle < 360.0f; angle += resolution) {
+
 				Ray ray(Vector2f(getPosition() + 0.5f), Vector2f::AngleToVector(angle));
 
 				for (float pos = 0.0f; pos < 20.0f; pos += 1.0f) {
@@ -171,6 +171,7 @@ namespace glaze {
 					const Tile currentTile(_level->GetTile(position));
 					
 					_level->SetTileVisible(position);
+
 					if (currentTile.getType() == Tile::Type::Wall) {
 						break;
 					}
@@ -283,13 +284,15 @@ namespace glaze {
 			if (!_godmode) {
 				_godmode = true;
 				_invincible = true;
+				_xray = true;
 			}
 			else {
 				_godmode = false;
 				_invincible = false;
+				_xray = false;
 			}
 
-			Log::AddMessage("Godmode " + _godmode ? "on" : "off");
+			Log::AddMessage(_godmode ? "Godmode on" : "Godmode off");
 
 			return _godmode;
 		}

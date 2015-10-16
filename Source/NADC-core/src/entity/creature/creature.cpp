@@ -37,7 +37,7 @@ using namespace glibrary;
 			else
 				_noClip = false;
 
-			Log::AddMessage("Noclip " + _noClip ? "on" : "off");
+			Log::AddMessage(_noClip ? "Noclip on" : "Noclip off");
 
 			return _noClip;
 		}
@@ -48,7 +48,7 @@ using namespace glibrary;
 			else
 				_invincible = false;
 
-			Log::AddMessage("Invincibility " + _invincible ? "on" : "off");
+			Log::AddMessage(_invincible ? "Invincibility on" : "Invincibility off");
 
 			return _invincible;
 

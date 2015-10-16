@@ -4,7 +4,7 @@ namespace glaze {
 	namespace gengine {
 
 		SpawnSource::SpawnSource(Entity* entity, SpawnSource* lastSpawnSource, const float& spawnChance)
-			: _entity(entity), _name(entity->getName()) {
+			: _entity(entity) {
 			
 			float lastSpawnChance = 0.0f;
 			if (lastSpawnSource != nullptr)

@@ -8,40 +8,67 @@ namespace glaze {
 		Level* LevelManager::_currentLevel;
 		int LevelManager::_numLevels = 0;
 		int LevelManager::_currentLevelNumber = -1;
+		Player* LevelManager::_player;
 
-		void LevelManager::AddLevel(const bool& allVisible) {
-			_levels.push_back(new Level(Vector2i(99, 99), allVisible));
-			_numLevels++;
+		void LevelManager::Init(Player* player) {
+			_player = player;
+			GoDown();
 		}
 
-		void LevelManager::GoUp(Player* player) {
+		void LevelManager::GoUp(const bool& allVisible) {
 
 			if (_currentLevelNumber > 0) {
 				_currentLevelNumber--;
 				_currentLevel = _levels[_currentLevelNumber];
-				player->setLevel(_currentLevel);
-				player->setPosition(_currentLevel->GetStairsDown()->getPosition());
-				player->UpdateVisibility();
+				_player->setLevel(_currentLevel);
+				_player->setPosition(_currentLevel->GetStairsDown()->getPosition());
+				_player->UpdateVisibility();
+
+				if (allVisible)
+					_currentLevel->SetAllVisible();
+
 			}
 		}
 
-		void LevelManager::GoDown(Player* player) {
+		void LevelManager::GoDown(const bool& allVisible) {
 			_currentLevelNumber++;
 
 			if (_numLevels <= _currentLevelNumber)
-				AddLevel(player->getSuperVision());
+				AddLevel();
 
 			_currentLevel = _levels[_currentLevelNumber];
 			
-			player->setLevel(_currentLevel);
-			player->setPosition(_currentLevel->GetStairsUp()->getPosition());
-			player->UpdateVisibility();
+			_player->setLevel(_currentLevel);
+			_player->setPosition(_currentLevel->GetStairsUp()->getPosition());
+			_player->UpdateVisibility();
+
+			if (allVisible)
+				_currentLevel->SetAllVisible();
 		}
 
 		void LevelManager::PreLoadLevels(const int& num) {
 			for (int i = 0; i < num; i++) {
-				AddLevel(false);
+				AddLevel();
 			}
+		}
+
+		void LevelManager::Reset() {
+			_numLevels = 0;
+			_currentLevelNumber = -1;
+			Clean();
+			GoDown();
+		}
+
+		void LevelManager::Clean() {
+			for (auto* level : _levels) {
+				delete level;
+			}
+			_levels.clear();
+		}
+
+		void LevelManager::AddLevel() {
+			_levels.push_back(new Level(Vector2i(99, 99)));
+			_numLevels++;
 		}
 
 	} // End namespace gengine

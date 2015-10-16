@@ -19,12 +19,12 @@ namespace glaze {
 			Console() {}
 			~Console() {}
 
-		public: // Public static methods
+		public: // Public methods
 			static void Init();
 			static void Input(Player* player);
 
-		private: // Private static methods
-			static void RunCommand(const std::string& command, Player* player);
+		private: // Private methods
+			static void RunCommand(const std::string& fullCommand);
 
 			struct Commands {
 				static void Add(const std::string& entityName, const int& num);

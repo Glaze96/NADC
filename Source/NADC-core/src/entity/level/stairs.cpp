@@ -13,9 +13,9 @@ namespace glaze {
 		void Stairs::DoAction(Entity* entity, Player* player, const Action& action) {
 			
 			if (_up)
-				LevelManager::GoUp(player);
+				LevelManager::GoUp(player->getXray());
 			else
-				LevelManager::GoDown(player);
+				LevelManager::GoDown(player->getXray());
 
 		}
 

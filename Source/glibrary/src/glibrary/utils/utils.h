@@ -19,5 +19,39 @@ namespace glaze {
 
 		}
 
+		inline bool IsInteger(const char& ch) {
+
+			if (ch < 48 || ch > 57)
+				return false;
+
+			return true;
+		}
+
+		inline bool IsInteger(const std::string& str) {
+
+			int numInts = 0;
+
+			for (int i = 0; i < str.size(); i++) {
+				if (IsInteger(str.at(i)))
+					numInts++;
+			}
+
+			if (numInts == str.size())
+				return true;
+
+			return false;
+		}
+
+		inline bool ContainsInteger(const std::string& str) {
+
+			for (int i = 0; i < str.size(); i++) {
+				if (IsInteger(str.at(i)))
+					return true;
+			}
+
+			return false;
+
+		}
+
 	}
 }

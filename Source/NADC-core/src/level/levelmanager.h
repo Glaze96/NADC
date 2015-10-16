@@ -18,21 +18,26 @@ namespace glaze {
 			static int _numLevels;
 			static int _currentLevelNumber;
 
+			static Player* _player;
+
 		private: // Con- & destructor's
 			LevelManager() {}
 			~LevelManager() {}
 
 		public: // Public getters
-			static Level* getCurrentLevel() { return _currentLevel; }
-			static int getNumLevels() { return _numLevels; }
+			static const Level* getCurrentLevel() { return _currentLevel; }
+			static const int& getNumLevels() { return _numLevels; }
 
 		public: // Public methods
-			static void GoUp(Player* player);
-			static void GoDown(Player* player);
+			static void Init(Player* player);
+			static void GoUp(const bool& allVisible = false);
+			static void GoDown(const bool& allVisible = false);
 			static void PreLoadLevels(const int& num);
+			static void Reset();
 
 		private: // Private methods
-			static void AddLevel(const bool& allVisible);
+			static void Clean();
+			static void AddLevel();
 			
 		};
 

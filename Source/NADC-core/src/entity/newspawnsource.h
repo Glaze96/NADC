@@ -15,8 +15,8 @@ namespace glaze {
 			~SpawnSource() {}
 		
 		public: // getters
-			const std::string&	getName()			const { return _name; }
 			const float&		getSpawnChance()	const { return _spawnChance; }
+			const std::string&	getName()			const { return _name; }
 
 		public: // Getters
 			Entity* GetEntity() const;

@@ -5,22 +5,22 @@
 #include <Glibrary/console/io.h>
 
 // Gengine includes
-#include "../entity/items/equipment.h"
 #include "levelgenerator.h"
 #include "levelmanager.h"
+#include "../entity/creature/enemy.h"
+#include "../entity/items/item.h"
 
 namespace glaze {
 	using namespace glibrary;
 	namespace gengine {
 
-		Level::Level(const Vector2i& size, const bool& allVisible) {
-			_levelNumber = LevelManager::getNumLevels();
-			_size = size;
+		Level::Level(const Vector2i& size)
+		: _size(size), _levelNumber(LevelManager::getNumLevels()) {
 
 			LevelGenerator::GenerateLevel(this, 1000);
 
-			if (allVisible)
-				SetAllVisible();
+			UpdateCollections();
+
 		}
 
 		void Level::Fill(const Tile& tile) {
@@ -158,6 +158,8 @@ namespace glaze {
 				_eventHandler.Subscribe(entity, { Event::Type::PlayerMoved });
 
 				_entities.push_back(entity);
+
+				UpdateCollections();
 				return true;
 			}
 
@@ -175,11 +177,28 @@ namespace glaze {
 			}
 			_eventHandler.UnSubscribe(entity);
 			delete entity;
+			UpdateCollections();
 		}
 
 		void Level::Draw() const {
 			DrawLevel();
-			for (auto* entity : _entities) entity->Draw();
+
+			Color::SetColor(Color::YELLOW);
+			for (const auto* item : _items) {
+				item->Draw();
+			}
+			Color::ResetColor();
+
+			Color::SetColor(Color::RED);
+			for (const auto* enemy: _enemies) {
+				enemy->Draw();
+			}
+			Color::ResetColor();
+
+			for (const auto* other : _other) {
+				other->Draw();
+			}
+
 		}
 
 		void Level::DrawLevel() const {
@@ -192,9 +211,30 @@ namespace glaze {
 						Out::PrintchAt(x, y, currentTile.getAppearence());
 					}
 
-
 				}
 			}
+		}
+
+		void Level::UpdateCollections() {
+
+			_enemies.clear();
+			_items.clear();
+			_other.clear();
+
+			for (auto* entity : _entities) {
+
+				if (dynamic_cast<Item*>(entity) != NULL) {
+					_items.push_back((Item*)entity);
+				}
+				else if (dynamic_cast<Enemy*>(entity) != NULL) {
+					_enemies.push_back((Enemy*)entity);
+				}
+				else {
+					_other.push_back(entity);
+				}
+
+			}
+
 		}
 
 	} // End namespace gengine

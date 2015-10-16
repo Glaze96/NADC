@@ -20,7 +20,9 @@ namespace glaze {
 	namespace gengine {
 
 		typedef std::pair<std::string, SpawnSource> entitySource;
+		typedef std::pair<float, SpawnSource> newEntitySource;
 
+		std::map<float, SpawnSource> EntityTemplate::newItemSources;
 		std::map<std::string, SpawnSource> EntityTemplate::itemSources;
 		std::map<std::string, SpawnSource> EntityTemplate::enemySources;
 		std::map<std::string, SpawnSource> EntityTemplate::specialItemSources;
@@ -35,17 +37,15 @@ namespace glaze {
 		Entity* cod =			new Food("Cod",			17.0f);
 		Entity* steak =			new Food("Steak",		20.0f);
 
-		//TODO: add variations of fish!
-
 		// Alcohol
-		Entity* cider =		new Alcohol("Cider", 10.0f, 2.00f);
-		Entity* ale =		new Alcohol("Ale", 15.0f, 3.00f);
-		Entity* mead =		new Alcohol("Mead", 15.0f, 3.00f);
-		Entity* wine =		new Alcohol("Wine", 15.0f, 5.00f);
-		Entity* rum =		new Alcohol("Rum", 10.0f, 10.0f);
-		Entity* whisky =	new Alcohol("Whisky", 10.0f, 10.0f);
-		Entity* vodka =		new Alcohol("Vodka", 10.0f, 10.0f);
-		Entity* burbon =	new Alcohol("Bourbon", 2.0f, 20.0f);
+		Entity* cider =			new Alcohol("Cider", 10.0f, 2.00f);
+		Entity* ale =			new Alcohol("Ale", 15.0f, 3.00f);
+		Entity* mead =			new Alcohol("Mead", 15.0f, 3.00f);
+		Entity* wine =			new Alcohol("Wine", 15.0f, 5.00f);
+		Entity* rum =			new Alcohol("Rum", 10.0f, 10.0f);
+		Entity* whisky =		new Alcohol("Whisky", 10.0f, 10.0f);
+		Entity* vodka =			new Alcohol("Vodka", 10.0f, 10.0f);
+		Entity* burbon =		new Alcohol("Bourbon", 2.0f, 20.0f);
 
 		// Equipment
 		Entity* sword =			new Equipment("Sword", 10.0f, 0.0f, Item::Type::Hand);
@@ -54,24 +54,29 @@ namespace glaze {
 		Entity* chainmail =		new Equipment("Chain mail", 0.00f, 10.0f, Item::Type::Torso);
 
 		// Other
-		Entity* key =	new Item("Key", Item::Type::Key);
-		Entity* torch = new LightSource("Torch", 15.0f);
+		Entity* key =			new Item("Key", Item::Type::Key);
+		Entity* torch =			new LightSource("Torch", 15.0f);
 
 		// Stairs
 		Entity* stairsUp =		new Stairs("Stairs up", 'U', true);
 		Entity* stairsDown =	new Stairs("Stairs down", 'D', false);
 
 		// Enemies
-		Entity* rat =		new Enemy("Rat", 2.00f, 1.0f, 10.0f);
-		Entity* giantRat =	new Enemy("Giant rat", 5.00f, 2.0f, 30.0f);
-		Entity* troll =		new Enemy("Troll", 8.00f, 4.0f, 50.0f);
-		Entity* witch =		new Enemy("Witch", 4.0f, 2.0f, 100.0f);
-		Entity* orc =		new Enemy("Orc", 12.0f, 5.0f, 50.0f);
+		Entity* rat =			new Enemy("Rat", 2.00f, 1.0f, 10.0f);
+		Entity* giantRat =		new Enemy("Giant rat", 5.00f, 2.0f, 30.0f);
+		Entity* troll =			new Enemy("Troll", 8.00f, 4.0f, 50.0f);
+		Entity* witch =			new Enemy("Witch", 4.0f, 2.0f, 100.0f);
+		Entity* orc =			new Enemy("Orc", 12.0f, 5.0f, 50.0f);
 
 		// NPCs
-		Entity* shopKeeper = new ShopKeeper("Shop Keeper");
+		Entity* shopKeeper =	new ShopKeeper("Shop Keeper");
 
 		void EntityTemplate::Init() {
+
+			newItemSources.insert(newEntitySource(0.0f, SpawnSource(berries)));
+			newItemSources.insert(newEntitySource(0.0f, SpawnSource(rum)));
+			newItemSources.insert(newEntitySource(0.0f, SpawnSource(vodka)));
+			newItemSources.insert(newEntitySource(0.0f, SpawnSource(bread)));
 
 
 			itemSources.insert(entitySource("Berries",				SpawnSource(berries)));
@@ -107,42 +112,42 @@ namespace glaze {
 			enemySources.insert(entitySource("Troll",				SpawnSource(troll)));
 			enemySources.insert(entitySource("Witch",				SpawnSource(witch)));
 
-
 			enemySources.insert(entitySource("ShopKeeper",			SpawnSource(shopKeeper)));
+
+			UpdateSpawnChances(0);
 
 		}
 
 		void EntityTemplate::UpdateSpawnChances(const int& levelNumber) {
-
-			std::vector<float> chances = { };
 
 			float curve = (levelNumber / 20.0f) + 1.0f;
 			float chance = 0.0f;
 			unsigned int i = -1;
 
 			try {
-				i++; chance += curve * 3.0f;		itemSources.at("Berries").setSpawnChance(chance);	
-				i++; chance += curve * 2.0f;		itemSources.at("Mushrooms").setSpawnChance(chance);	
+				
+				i++; chance += curve * 3.0f;		itemSources.at("Berries").setSpawnChance(chance);
+				i++; chance += curve * 2.0f;		itemSources.at("Mushrooms").setSpawnChance(chance);
 				i++; chance += curve * 1.2f;		itemSources.at("Cheese").setSpawnChance(chance);
-				i++; chance += curve * 1.2f;		itemSources.at("Bread").setSpawnChance(chance);		
-				i++; chance += curve * 1.0f;		itemSources.at("Chicken").setSpawnChance(chance);	
-				i++; chance += curve * 1.0f;		itemSources.at("Salmon").setSpawnChance(chance);	
-				i++; chance += curve * 1.0f;		itemSources.at("Cod").setSpawnChance(chance);		
-				i++; chance += curve * 0.6f;		itemSources.at("Steak").setSpawnChance(chance);		
+				i++; chance += curve * 1.2f;		itemSources.at("Bread").setSpawnChance(chance);
+				i++; chance += curve * 1.0f;		itemSources.at("Chicken").setSpawnChance(chance);
+				i++; chance += curve * 1.0f;		itemSources.at("Salmon").setSpawnChance(chance);
+				i++; chance += curve * 1.0f;		itemSources.at("Cod").setSpawnChance(chance);
+				i++; chance += curve * 0.6f;		itemSources.at("Steak").setSpawnChance(chance);
 
-				i++; chance += curve * 2.0f;		itemSources.at("Cider").setSpawnChance(chance);		
-				i++; chance += curve * 2.0f;		itemSources.at("Ale").setSpawnChance(chance);		
-				i++; chance += curve * 1.8f;		itemSources.at("Mead").setSpawnChance(chance);		
-				i++; chance += curve * 1.5f;		itemSources.at("Wine").setSpawnChance(chance);		
-				i++; chance += curve * 1.0f;		itemSources.at("Rum").setSpawnChance(chance);		
-				i++; chance += curve * 1.0f;		itemSources.at("Vodka").setSpawnChance(chance);		
-				i++; chance += curve * 1.0f;		itemSources.at("Whisky").setSpawnChance(chance);	
-				i++; chance += curve * 0.3f;		itemSources.at("Bourbon").setSpawnChance(chance);	
+				i++; chance += curve * 2.0f;		itemSources.at("Cider").setSpawnChance(chance);
+				i++; chance += curve * 2.0f;		itemSources.at("Ale").setSpawnChance(chance);
+				i++; chance += curve * 1.8f;		itemSources.at("Mead").setSpawnChance(chance);
+				i++; chance += curve * 1.5f;		itemSources.at("Wine").setSpawnChance(chance);
+				i++; chance += curve * 1.0f;		itemSources.at("Rum").setSpawnChance(chance);
+				i++; chance += curve * 1.0f;		itemSources.at("Vodka").setSpawnChance(chance);
+				i++; chance += curve * 1.0f;		itemSources.at("Whisky").setSpawnChance(chance);
+				i++; chance += curve * 0.3f;		itemSources.at("Bourbon").setSpawnChance(chance);
 
-				i++; chance += curve * 0.5f;		itemSources.at("Helmet").setSpawnChance(chance);	
+				i++; chance += curve * 0.5f;		itemSources.at("Helmet").setSpawnChance(chance);
 				i++; chance += curve * 0.5f;		itemSources.at("SteelBoots").setSpawnChance(chance);
-				i++; chance += curve * 0.3f;		itemSources.at("Sword").setSpawnChance(chance);		
-				i++; chance += curve * 0.1f;		itemSources.at("ChainMail").setSpawnChance(chance);	
+				i++; chance += curve * 0.3f;		itemSources.at("Sword").setSpawnChance(chance);
+				i++; chance += curve * 0.1f;		itemSources.at("ChainMail").setSpawnChance(chance);
 
 				if (i < itemSources.size() - 1)
 					Log::AddMessage("Forgot to add spawnchance to all item templates!", Message::Type::Warning);
@@ -164,12 +169,14 @@ namespace glaze {
 
 		}
 
-		Entity* EntityTemplate::TryGetItem(const int& randomNumber) {
+		Entity* EntityTemplate::TryGetItem(const float& randomNumber) {
+
 			for (auto& spawnSource : itemSources) {
-				if (spawnSource.second.getSpawnChance() > randomNumber) {
+				if (randomNumber < spawnSource.second.getSpawnChance()) {
 					return spawnSource.second.GetEntity();
 				}
 			}
+
 			return nullptr;
 		}
 
@@ -207,120 +214,13 @@ namespace glaze {
 
 			return nullptr;
 		}
+
+		void EntityTemplate::SortSources() {
+			
+
+
+
+		}
+
 	}
 }
-
-
-//// Alcohol
-//Entity* SpawnFunctionCider() { return			new Alcohol("Cider", 10.0_hp, 2.0_abv); }
-//Entity* SpawnFunctionAle() { return				new Alcohol("Ale", 15.0_hp, 3.0_abv); }
-//Entity* SpawnFunctionMead() { return			new Alcohol("Mead", 15.0_hp, 3.0_abv); }
-//Entity* SpawnFunctionWine() { return			new Alcohol("Wine", 15.0_hp, 5.0_abv); }
-//Entity* SpawnFunctionRum() { return				new Alcohol("Rum", 10.0_hp, 10.0_abv); }
-//Entity* SpawnFunctionWhisky() { return			new Alcohol("Whisky", 10.0_hp, 10.0_abv); }
-//Entity* SpawnFunctionVodka() { return			new Alcohol("Vodka", 10.0_hp, 10.0_abv); }
-
-//// Food
-//Entity* SpawnFunctionBread() { return			new Food("Bread", 10.0_hp); }
-//Entity* SpawnFunctionCheese() { return			new Food("Cheese", 8.0_hp); }
-//Entity* SpawnFunctionFish() { return			new Food("Fish", 15.0_hp); }
-//Entity* SpawnFunctionSteak() { return			new Food("Steak", 20.0_hp); }
-
-//// Equipment
-//Entity* SpawnFunctionSword() { return			new Equipment("Sword", 10.0_d, 0.0_a, ItemType::Hand); }
-//Entity* SpawnFunctionHelmet() { return			new Equipment("Helmet", 0.0_d, 5.0_a, ItemType::Head); }
-//Entity* SpawnFunctionSteelBoots() { return		new Equipment("Steel boots", 0.0_d, 2.0_a, ItemType::Feet); }
-
-//// Enemies
-//Entity* SpawnFunctionRat() { return				new Enemy("Rat", 2.0_d, 1.0_a, 10.0_hp); }
-//Entity* SpawnFunctionGiantRat() { return		new Enemy("Giant rat", 5.0_d, 2.0_a, 30.0_hp); }
-//Entity* SpawnFunctionTroll() { return			new Enemy("Troll", 8.0_d, 4.0_a, 50.0_hp); }
-//Entity* SpawnFunctionOrc() { return				new Enemy("Orc", 12.0_d, 5.0_a, 50.0_hp); }
-
-//// Stairs
-//Entity* SpawnFunctionStairsUp() { return		new Stairs("Stairs up", 'U', true); }
-//Entity* SpawnFunctionStairsDown() { return		new Stairs("Stairs down", 'D', false); }
-
-//// Other
-//Entity* SpawnFunctionKey() { return				new Item("Key", ItemType::Key); }
-//Entity* SpawnFunctionTorch() { return			new LightSource("Torch", 15.0f); }
-
-//std::vector<SpawnSource*> EntityTemplate::consumableSpawnSources = {
-//	// Alcohol
-//	new SpawnSource(0.0020f,	SpawnFunctionCider),
-//	new SpawnSource(0.0020f,	SpawnFunctionAle),
-//	new SpawnSource(0.0015f,	SpawnFunctionMead),
-//	new SpawnSource(0.0010f,	SpawnFunctionWine),
-//	new SpawnSource(0.0005f,	SpawnFunctionRum),
-//	new SpawnSource(0.0005f,	SpawnFunctionWhisky),
-//	new SpawnSource(0.0005f,	SpawnFunctionVodka),
-//					  
-//	// Food			  
-//	new SpawnSource(0.0020f,	SpawnFunctionBread),
-//	new SpawnSource(0.0020f,	SpawnFunctionCheese),
-//	new SpawnSource(0.0015f,	SpawnFunctionFish),
-//	new SpawnSource(0.0010f,	SpawnFunctionSteak)
-//};
-
-
-//std::vector<SpawnSource*> EntityTemplate::equipmentSpawnSources = {
-//	// Equipment
-//	new SpawnSource(0.0005f,	SpawnFunctionSword),
-//	new SpawnSource(0.0007f,	SpawnFunctionHelmet),
-//	new SpawnSource(0.0009f,	SpawnFunctionSteelBoots)
-//};
-
-
-//std::vector<SpawnSource*> EntityTemplate::enemySpawnSources = {
-//	// Enemies
-//	new SpawnSource(0.0020f,	SpawnFunctionRat),
-//	new SpawnSource(0.0010f,	SpawnFunctionGiantRat),
-//	new SpawnSource(0.0005f,	SpawnFunctionTroll),
-//	new SpawnSource(0.0002f,	SpawnFunctionOrc),
-//};
-
-//int i = -1;
-//// Alcohol
-//itemSpawnSources.push_back(new SpawnSource((curve * 5.0f), SpawnFunctionCider));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 5.0f), SpawnFunctionMead));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 3.0f), SpawnFunctionWine));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 2.0f), SpawnFunctionRum));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 1.0f), SpawnFunctionWhisky));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 1.0f), SpawnFunctionVodka));
-//i++;
-//
-//// Food
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 4.0f), SpawnFunctionBread));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 5.0f), SpawnFunctionCheese));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 4.0f), SpawnFunctionFish));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 3.0f), SpawnFunctionSteak));
-//i++;
-//
-//// Equipment
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 0.5f), SpawnFunctionSword));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 0.9f), SpawnFunctionHelmet));
-//i++;
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 1.0f), SpawnFunctionSteelBoots));
-//i++;
-//
-//// Other
-//itemSpawnSources.push_back(new SpawnSource(itemSpawnSources[i]->_spawnChance + (curve * 1.0f), SpawnFunctionTorch));
-//i++;
-//
-//i = -1;
-//// Enemies
-//enemySpawnSources.push_back(new SpawnSource((curve * 2.0f), SpawnFunctionGiantRat));
-//i++;
-//enemySpawnSources.push_back(new SpawnSource(enemySpawnSources[i]->_spawnChance + (curve * 1.0f), SpawnFunctionTroll));
-//i++;
-//enemySpawnSources.push_back(new SpawnSource(enemySpawnSources[i]->_spawnChance + (curve * 0.9f), SpawnFunctionOrc));
-//i++;

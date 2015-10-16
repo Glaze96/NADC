@@ -367,7 +367,7 @@ namespace glaze {
 
 						Vector2i position = room.getPosition() + Vector2i(x, y);
 
-						int random = rand() % 10000;
+						float random = rand() % 1000;
 
 						Entity* item = EntityTemplate::TryGetItem(random);
 						if (item != nullptr) {
