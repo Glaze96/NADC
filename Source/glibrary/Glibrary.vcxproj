@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C11A22BB-76B9-4F7F-A4AF-879945196211}</ProjectGuid>
+    <RootNamespace>Math</RootNamespace>
+    <ProjectName>glibrary</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\Dependencies\lib\</OutDir>
+    <IntDir>$(SolutionDir)\Dependencies\lib\Intermediates\</IntDir>
+    <IncludePath>$(IncludePath);$(ProjectDir)Dependencies\include</IncludePath>
+    <LibraryPath>$(LibraryPath);$(ProjectDir)Dependencies\lib</LibraryPath>
+    <ReferencePath>$(VC_ReferencesPath_x86)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\Dependencies\lib\</OutDir>
+    <IntDir>$(SolutionDir)\Dependencies\lib\Intermediates\</IntDir>
+    <IncludePath>$(WindowsSDK_IncludePath);$(VC_IncludePath);$(IncludePath);$(ProjectDir)Dependencies\include</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(LibraryPath);$(ProjectDir)Dependencies\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\curses\curses.h" />
+    <ClInclude Include="src\curses\curspriv.h" />
+    <ClInclude Include="src\curses\panel.h" />
+    <ClInclude Include="src\curses\term.h" />
+    <ClInclude Include="src\curses\win32\pdcwin.h" />
+    <ClInclude Include="src\glibrary\audio\playlist.h" />
+    <ClInclude Include="src\glibrary\audio\sound.h" />
+    <ClInclude Include="src\glibrary\audio\soundmanager.h" />
+    <ClInclude Include="src\glibrary\console\cursor.h" />
+    <ClInclude Include="src\glibrary\console\io.h" />
+    <ClInclude Include="src\glibrary\console\log.h" />
+    <ClInclude Include="src\glibrary\console\message.h" />
+    <ClInclude Include="src\glibrary\console\window.h" />
+    <ClInclude Include="src\glibrary\engine\engine.h" />
+    <ClInclude Include="src\glibrary\graphics\color.h" />
+    <ClInclude Include="src\glibrary\graphics\draw.h" />
+    <ClInclude Include="src\glibrary\HeaderTemplate.h" />
+    <ClInclude Include="src\glibrary\maths\constants.h" />
+    <ClInclude Include="src\glibrary\maths\geometry.h" />
+    <ClInclude Include="src\glibrary\maths\vector2.h" />
+    <ClInclude Include="src\glibrary\system\system.h" />
+    <ClInclude Include="src\glibrary\utils\timer.h" />
+    <ClInclude Include="src\glibrary\utils\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\curses\pdcurses\addch.c" />
+    <ClCompile Include="src\curses\pdcurses\addchstr.c" />
+    <ClCompile Include="src\curses\pdcurses\addstr.c" />
+    <ClCompile Include="src\curses\pdcurses\attr.c" />
+    <ClCompile Include="src\curses\pdcurses\beep.c" />
+    <ClCompile Include="src\curses\pdcurses\bkgd.c" />
+    <ClCompile Include="src\curses\pdcurses\border.c" />
+    <ClCompile Include="src\curses\pdcurses\clear.c" />
+    <ClCompile Include="src\curses\pdcurses\ccolor.c" />
+    <ClCompile Include="src\curses\pdcurses\debug.c" />
+    <ClCompile Include="src\curses\pdcurses\delch.c" />
+    <ClCompile Include="src\curses\pdcurses\deleteln.c" />
+    <ClCompile Include="src\curses\pdcurses\deprec.c" />
+    <ClCompile Include="src\curses\pdcurses\getch.c" />
+    <ClCompile Include="src\curses\pdcurses\getstr.c" />
+    <ClCompile Include="src\curses\pdcurses\getyx.c" />
+    <ClCompile Include="src\curses\pdcurses\inch.c" />
+    <ClCompile Include="src\curses\pdcurses\inchstr.c" />
+    <ClCompile Include="src\curses\pdcurses\initscr.c" />
+    <ClCompile Include="src\curses\pdcurses\inopts.c" />
+    <ClCompile Include="src\curses\pdcurses\insch.c" />
+    <ClCompile Include="src\curses\pdcurses\insstr.c" />
+    <ClCompile Include="src\curses\pdcurses\instr.c" />
+    <ClCompile Include="src\curses\pdcurses\kernel.c" />
+    <ClCompile Include="src\curses\pdcurses\keyname.c" />
+    <ClCompile Include="src\curses\pdcurses\mouse.c" />
+    <ClCompile Include="src\curses\pdcurses\move.c" />
+    <ClCompile Include="src\curses\pdcurses\outopts.c" />
+    <ClCompile Include="src\curses\pdcurses\overlay.c" />
+    <ClCompile Include="src\curses\pdcurses\pad.c" />
+    <ClCompile Include="src\curses\pdcurses\panel.c" />
+    <ClCompile Include="src\curses\pdcurses\printw.c" />
+    <ClCompile Include="src\curses\pdcurses\refresh.c" />
+    <ClCompile Include="src\curses\pdcurses\scanw.c" />
+    <ClCompile Include="src\curses\pdcurses\scroll.c" />
+    <ClCompile Include="src\curses\pdcurses\scr_dump.c" />
+    <ClCompile Include="src\curses\pdcurses\slk.c" />
+    <ClCompile Include="src\curses\pdcurses\termattr.c" />
+    <ClCompile Include="src\curses\pdcurses\terminfo.c" />
+    <ClCompile Include="src\curses\pdcurses\touch.c" />
+    <ClCompile Include="src\curses\pdcurses\util.c" />
+    <ClCompile Include="src\curses\pdcurses\cwindow.c" />
+    <ClCompile Include="src\curses\win32\pdcclip.c" />
+    <ClCompile Include="src\curses\win32\pdcdisp.c" />
+    <ClCompile Include="src\curses\win32\pdcgetsc.c" />
+    <ClCompile Include="src\curses\win32\pdckbd.c" />
+    <ClCompile Include="src\curses\win32\pdcscrn.c" />
+    <ClCompile Include="src\curses\win32\pdcsetsc.c" />
+    <ClCompile Include="src\curses\win32\pdcutil.c" />
+    <ClCompile Include="src\glibrary\audio\playlist.cpp" />
+    <ClCompile Include="src\glibrary\audio\sound.cpp" />
+    <ClCompile Include="src\glibrary\audio\soundmanager.cpp" />
+    <ClCompile Include="src\glibrary\console\cursor.cpp" />
+    <ClCompile Include="src\glibrary\console\io.cpp" />
+    <ClCompile Include="src\glibrary\console\log.cpp" />
+    <ClCompile Include="src\glibrary\console\message.cpp" />
+    <ClCompile Include="src\glibrary\console\window.cpp" />
+    <ClCompile Include="src\glibrary\engine\engine.cpp" />
+    <ClCompile Include="src\glibrary\graphics\color.cpp" />
+    <ClCompile Include="src\glibrary\graphics\draw.cpp" />
+    <ClCompile Include="src\glibrary\maths\geometry.cpp" />
+    <ClCompile Include="src\glibrary\maths\vector2.cpp" />
+    <ClCompile Include="src\glibrary\system\system.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\curses\win32\bccwin32.mak" />
+    <None Include="src\curses\win32\dmcwin32.mak" />
+    <None Include="src\curses\win32\gccwin32.mak" />
+    <None Include="src\curses\win32\lccwin32.mak" />
+    <None Include="src\curses\win32\mingwin32.mak" />
+    <None Include="src\curses\win32\README" />
+    <None Include="src\curses\win32\vcwin32.mak" />
+    <None Include="src\curses\win32\wccwin32.mak" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\curses\win32\pdcurses.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\curses\win32\pdcurses.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
