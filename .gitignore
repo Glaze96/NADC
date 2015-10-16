@@ -13,7 +13,7 @@
 # Build results
 
 [Oo]bj/
-[Ii]termediates/
+[Ii]ntermediates/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -44,6 +44,7 @@
 *.iobj
 *.ipdb
 *.log
+*.tlog
 *.scc
 
 
