@@ -1,3 +1,8 @@
+/*
+	Session work:
+		Spawn entity system
+*/
+
 
 #define DEBUG
 
