@@ -26,6 +26,10 @@ private:
 	// Runs at start of program
 	void Init() override {
 
+
+
+		// This is a comment from the 'master' branch
+
 		Console::Init();
 		EntityTemplate::Init();
 
