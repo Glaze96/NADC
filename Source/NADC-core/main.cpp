@@ -26,6 +26,8 @@ private:
 	// Runs at start of program
 	void Init() override {
 
+		// Test comment in 'testBranch'
+
 		Console::Init();
 		EntityTemplate::Init();
 
