@@ -47,6 +47,9 @@
 *.tlog
 *.scc
 
+# Other
+*.cd
+
 
 # Visual C++ cache files
 ipch/
