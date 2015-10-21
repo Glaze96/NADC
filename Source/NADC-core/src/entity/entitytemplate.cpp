@@ -19,14 +19,10 @@
 namespace glaze {
 	namespace gengine {
 
+		typedef std::pair<float, SpawnSource> newEntitySource;
+		std::vector<std::pair<float, SpawnSource>> EntityTemplate::newItemSources;
+
 		typedef std::pair<std::string, SpawnSource> entitySource;
-
-
-		typedef std::pair<float, SpawnSource> chanceSourcePair;
-
-		std::vector<chanceSourcePair> EntityTemplate::newItemSpawnSources;
-
-
 		std::map<std::string, SpawnSource> EntityTemplate::itemSources;
 		std::map<std::string, SpawnSource> EntityTemplate::enemySources;
 		std::map<std::string, SpawnSource> EntityTemplate::specialItemSources;
@@ -77,8 +73,10 @@ namespace glaze {
 
 		void EntityTemplate::Init() {
 
-			//newItemSpawnSources.insert(chanceSourcePair(0.0f, SpawnSource(berries)));
-
+			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(berries,		2.0f)));
+			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(steelBoots,	5.0f)));
+			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(steelBoots,	19.0f)));
+			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(steelBoots,	25.0f)));
 
 			itemSources.insert(entitySource("Berries", SpawnSource(berries)));
 			itemSources.insert(entitySource("Mushrooms", SpawnSource(mushrooms)));
@@ -104,8 +102,8 @@ namespace glaze {
 			itemSources.insert(entitySource("ChainMail", SpawnSource(chainmail)));
 
 			specialItemSources.insert(entitySource("Key", SpawnSource(key)));
-			specialItemSources.insert(entitySource("StairsUp", SpawnSource(stairsUp)));
-			specialItemSources.insert(entitySource("StairsDown", SpawnSource(stairsDown)));
+			specialItemSources.insert(entitySource("StairsUp", SpawnSource(stairsUp, 0.0f)));
+			specialItemSources.insert(entitySource("StairsDown", SpawnSource(stairsDown, 0.0f)));
 
 			enemySources.insert(entitySource("Rat", SpawnSource(rat)));
 			enemySources.insert(entitySource("GiantRat", SpawnSource(giantRat)));
@@ -115,7 +113,6 @@ namespace glaze {
 
 			enemySources.insert(entitySource("ShopKeeper", SpawnSource(shopKeeper)));
 
-			UpdateSpawnChances(0);
 
 		}
 
@@ -126,6 +123,23 @@ namespace glaze {
 			unsigned int i = -1;
 
 			try {
+
+				for (int i = 0; i < newItemSources.size(); i++) {
+
+
+					if (i > 1) {
+						const float& lastSpawnChance = newItemSources.at(i - 1).second.getSpawnChance();
+						newItemSources.at(i).first += newItemSources.at(i - 1).first + lastSpawnChance;
+
+
+					}
+					else {
+						newItemSources.at(i).first = newItemSources.at(i).second.getSpawnChance();
+					}
+
+					Log::AddMessage(std::to_string(newItemSources.at(i).first));
+				}
+
 
 
 				//i++; chance += curve * 3.0f;		itemSources.at("Berries").setSpawnChance(chance);
@@ -194,6 +208,18 @@ namespace glaze {
 		}
 
 		Entity* EntityTemplate::Find(const std::string& name) {
+
+
+			//for (auto& source : newItemSources) {
+
+			//	SpawnSource sp = source.second;
+
+			//	if (CompareStrings(sp.getName(), name, false)) {
+			//		return sp.GetEntity();
+			//	}
+
+			//}
+
 
 			for (auto& spawnSource : itemSources) {
 				if (CompareStrings(spawnSource.first, name, false)) {

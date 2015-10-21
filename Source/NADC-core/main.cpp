@@ -31,11 +31,6 @@ private:
 	// Runs at start of program
 	void Init() override {
 
-		// Test comment in 'testBranch'
-
-
-		// This is a comment from the 'master' branch
-
 		Console::Init();
 		EntityTemplate::Init();
 
@@ -56,7 +51,11 @@ private:
 	// Runs at targetUPS
 	void Update(const float &updateTick, const int &ch) override {
 
-		if (ch == (0x108 + (1)))
+
+		if (ch == '-') {
+			//LevelManager::GoDown(true);
+		}
+		else if (ch == (0x108 + (1)))
 			Console::Input(player);
 		
 		// Update player

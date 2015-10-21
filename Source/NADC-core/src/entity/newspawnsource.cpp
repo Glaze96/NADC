@@ -1,16 +1,16 @@
 #include "newspawnsource.h"
 
+#include <Glibrary/utils/utils.h>
+
 namespace glaze {
 	namespace gengine {
 
-		SpawnSource::SpawnSource(Entity* entity, SpawnSource* lastSpawnSource, const float& spawnChance)
-			: _entity(entity) {
+		SpawnSource::SpawnSource(Entity* entity, const float& spawnChance)
+			: _entity(entity), _spawnChance(spawnChance) {
 			
-			float lastSpawnChance = 0.0f;
-			if (lastSpawnSource != nullptr)
-				lastSpawnChance = lastSpawnSource->getSpawnChance();
-			_spawnChance = lastSpawnChance + spawnChance;
+			_name = _entity->getName();
 
+			RemoveSpaces(_name);
 		}
 
 		Entity* SpawnSource::GetEntity() const {

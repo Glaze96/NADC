@@ -13,7 +13,7 @@ namespace glaze {
 		class EntityTemplate {
 
 		private: // Private fields
-			static std::vector<std::pair<float, SpawnSource>> newItemSpawnSources;
+			static std::vector<std::pair<float, SpawnSource>> newItemSources;
 
 			static std::map<std::string, SpawnSource> itemSources;
 			static std::map<std::string, SpawnSource> enemySources;

@@ -5,6 +5,24 @@
 namespace glaze {
 	namespace glibrary {
 
+		inline void RemoveSpaces(std::string& str) {
+			bool done = false;
+
+			while (!done) {
+
+				int spacePos = str.find_first_of(' ');
+
+				if (spacePos != -1) {
+					str.erase(spacePos, 1);
+				}
+				else {
+					done = true;
+				}
+
+
+			}
+		}
+
 		inline bool CompareStrings(std::string first, std::string second, const bool& caseSensitive = true) {
 
 			if (!caseSensitive) {

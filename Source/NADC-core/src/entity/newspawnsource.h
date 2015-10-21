@@ -11,12 +11,12 @@ namespace glaze {
 			float _spawnChance;
 
 		public: // Con- & destructor's
-			explicit SpawnSource(Entity* entity, SpawnSource* lastSpawnSource = nullptr, const float& spawnChance = 0.0f);
+			explicit SpawnSource(Entity* entity, const float& spawnChance = 0.0f);
 			~SpawnSource() {}
 		
 		public: // getters
-			const float&		getSpawnChance()	const { return _spawnChance; }
 			const std::string&	getName()			const { return _name; }
+			const float&		getSpawnChance()	const { return _spawnChance; }
 
 		public: // Getters
 			Entity* GetEntity() const;
