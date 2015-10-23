@@ -131,7 +131,7 @@ namespace glaze {
 
 			int i = 0;
 			for (; i < num; i++) {
-				if (!_player->getInventory()->AddEntity(EntityTemplate::Find(entityName), true)) {
+				if (!_player->getInventory()->Add(EntityTemplate::Find(entityName), true)) {
 					break;
 				}
 			}

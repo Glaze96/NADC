@@ -18,8 +18,8 @@ namespace glaze {
 			~UIManager() { }
 
 		public: // Public methods
-			static void Draw(Player* player);
 			static void Init(const int& gameWindowWidth, const int& gameWindowHeight, const int& uiWidth);
+			static void Draw(Player* player);
 
 		};
 

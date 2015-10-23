@@ -13,21 +13,22 @@ namespace glaze {
 		class EntityTemplate {
 
 		private: // Private fields
-			static std::vector<std::pair<float, SpawnSource>> newItemSources;
+			static std::vector<std::pair<float, SpawnSource>> allSources;
 
-			static std::map<std::string, SpawnSource> itemSources;
-			static std::map<std::string, SpawnSource> enemySources;
-			static std::map<std::string, SpawnSource> specialItemSources;
+			static std::vector<std::pair<float, SpawnSource>> newItemSources;
+			static std::vector<std::pair<float, SpawnSource>> newSpecialItemSources;
+			static std::vector<std::pair<float, SpawnSource>> newEnemySources;
 
 		private: // 'structors
 			EntityTemplate() { }
 
 		public: // Public methods
-			static void UpdateSpawnChances(const int& levelNumber);
-			static Entity* TryGetItem(const float& randomNumber);
 			static void Init();
 
-			static Entity* TryGetEnemy(const int& randomNumber);
+			static void UpdateSpawnChances(const int& levelNumber);
+			
+			static Entity* TryGetEntity(const float& randomNumber);
+
 			static Entity* Find(const std::string& name);
 		
 		private: // Private methods

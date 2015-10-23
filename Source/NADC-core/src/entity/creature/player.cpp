@@ -23,8 +23,8 @@ namespace glaze {
 
 			GenerateEquipmentSlots();
 
-			_inventory.AddEntity(EntityTemplate::Find("sword"));
-			_inventory.AddEntity(EntityTemplate::Find("helmet"));
+			_inventory.Add(EntityTemplate::Find("sword"));
+			_inventory.Add(EntityTemplate::Find("helmet"));
 		}
 
 		void Player::GenerateEquipmentSlots() {
@@ -243,11 +243,11 @@ namespace glaze {
 				MakeAction(Action::Right);
 			}
 
-			if (ch == '1') {
+			if (ch == '2') {
 				_selection = 0;
 				_currentMenu = Menu::Inv;
 			}
-			else if (ch == '2') {
+			else if (ch == '1') {
 				_selection = 0;
 				_currentMenu = Menu::TileInfo;
 			}

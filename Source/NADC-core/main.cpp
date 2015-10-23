@@ -53,7 +53,7 @@ private:
 
 
 		if (ch == '-') {
-			//LevelManager::GoDown(true);
+			LevelManager::GoDown(true);
 		}
 		else if (ch == (0x108 + (1)))
 			Console::Input(player);

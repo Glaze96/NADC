@@ -18,26 +18,26 @@ namespace glaze {
 		std::vector<UIElement*> UIManager::_uiElements;
 
 		void UIManager::Init(const int& gameWindowWidth, const int& gameWindowHeight, const int& uiWidth) {
-			
+
 			int currentYPos = 0;
-			
+
 			InventoryUI* inventoryUI = new InventoryUI(
-			Vector2i(gameWindowWidth, currentYPos),
-			Vector2i(uiWidth/2, 40));
+				Vector2i(gameWindowWidth + uiWidth / 2, currentYPos),
+				Vector2i(uiWidth / 2 + 1, 40));
 			_uiElements.push_back(inventoryUI);
 
 			TileInfoUI* tileInfoUI = new TileInfoUI(
-				Vector2i(gameWindowWidth + uiWidth / 2, currentYPos),
-				Vector2i(uiWidth / 2 + 1, 40));
+				Vector2i(gameWindowWidth, currentYPos),
+				Vector2i(uiWidth / 2, 40));
 			_uiElements.push_back(tileInfoUI);
 
 			currentYPos += _uiElements.back()->getSize().y;
-			
+
 			EntityInfoUI* entityInfoUI = new EntityInfoUI(
 				Vector2i(gameWindowWidth, currentYPos),
 				Vector2i(uiWidth, 30));
 			_uiElements.push_back(entityInfoUI);
-			
+
 			currentYPos += _uiElements.back()->getSize().y;
 
 			PlayerInfoUI* playerInfoUI = new PlayerInfoUI(

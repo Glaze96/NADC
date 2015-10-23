@@ -25,7 +25,7 @@ namespace glaze {
 			const unsigned int& getNumItems() const { return _numItems; }
 
 		public: // Public methods
-			bool AddEntity(Entity* item, const bool& supressLog = false);
+			bool Add(Entity* item, const bool& supressLog = false);
 			void Destroy(Entity* entity);
 
 		};

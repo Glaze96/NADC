@@ -21,7 +21,7 @@ namespace glaze {
 				if (getEquipped()) {
 
 					if (action == Action::Right) {
-						//TODO: add usage of item, for example bows
+						//TODO: add usage of item, for example ranged weapons
 					}
 					else {
 						entity->Interact(player);
@@ -54,7 +54,7 @@ namespace glaze {
 			Entity* copyOfItem = clone();
 
 			// Add to inventory
-			if (player->getInventory()->AddEntity(copyOfItem)) {
+			if (player->getInventory()->Add(copyOfItem)) {
 				// Destroy item in level, if successfully added to inventory
 				_level->DestroyEntity(this);
 			}

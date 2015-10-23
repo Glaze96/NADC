@@ -12,7 +12,6 @@ namespace glaze {
 		
 		void EventHandler::Subscribe(EventListener* listener, std::vector<Event::Type> types) {
 			_listeners.insert(_listeners.end(), listenerPair(listener, types));
-			Log::AddMessage("Someone started listening!");
 		}
 
 		void EventHandler::UnSubscribe(EventListener* listener) {

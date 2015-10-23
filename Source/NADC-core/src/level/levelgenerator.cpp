@@ -369,15 +369,10 @@ namespace glaze {
 
 						float random = rand() % 1000;
 
-						Entity* item = EntityTemplate::TryGetItem(random);
+						Entity* item = EntityTemplate::TryGetEntity(random);
+
 						if (item != nullptr) {
 							_level->AddEntity(item, position, true);
-							continue;
-						}
-
-						Entity* enemy = EntityTemplate::TryGetEnemy(random);
-						if (enemy != nullptr) {
-							_level->AddEntity(enemy, position, true);
 							continue;
 						}
 					}

@@ -19,13 +19,13 @@
 namespace glaze {
 	namespace gengine {
 
-		typedef std::pair<float, SpawnSource> newEntitySource;
-		std::vector<std::pair<float, SpawnSource>> EntityTemplate::newItemSources;
+		typedef std::pair<float, SpawnSource> entitySource;
 
-		typedef std::pair<std::string, SpawnSource> entitySource;
-		std::map<std::string, SpawnSource> EntityTemplate::itemSources;
-		std::map<std::string, SpawnSource> EntityTemplate::enemySources;
-		std::map<std::string, SpawnSource> EntityTemplate::specialItemSources;
+		std::vector<std::pair<float, SpawnSource>> EntityTemplate::allSources;
+
+		std::vector<std::pair<float, SpawnSource>> EntityTemplate::newItemSources;
+		std::vector<std::pair<float, SpawnSource>> EntityTemplate::newSpecialItemSources;
+		std::vector<std::pair<float, SpawnSource>> EntityTemplate::newEnemySources;
 
 		// Food
 		Entity* berries = new Food("Berries", 2.0f);
@@ -73,172 +73,89 @@ namespace glaze {
 
 		void EntityTemplate::Init() {
 
-			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(berries,		2.0f)));
-			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(steelBoots,	5.0f)));
-			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(steelBoots,	19.0f)));
-			//newItemSources.push_back(newEntitySource(0.0f, SpawnSource(steelBoots,	25.0f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(berries,	2.00f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(mushrooms,	2.00f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(cheese,		1.60f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(bread,		1.50f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(chicken,	1.20f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(salmon,		1.00f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(cod,		0.50f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(steak,		0.50f)));
+																
+			allSources.push_back(entitySource(0.0f, SpawnSource(cider,		0.70f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(ale,		0.70f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(mead,		0.60f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(wine,		0.40f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(rum,		0.40f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(vodka,		0.30f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(whisky,		0.30f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(burbon,		0.10f)));
+																		
+			allSources.push_back(entitySource(0.0f, SpawnSource(sword,		0.05f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(helmet,		0.05f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(steelBoots,	0.05f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(chainmail,	0.05f)));
+			
+			allSources.push_back(entitySource(0.0f, SpawnSource(rat,		3.00f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(giantRat,	1.20f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(orc,		0.20f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(troll,		0.20f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(witch,		0.20f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(shopKeeper,	0.05f)));
 
-			itemSources.insert(entitySource("Berries", SpawnSource(berries)));
-			itemSources.insert(entitySource("Mushrooms", SpawnSource(mushrooms)));
-			itemSources.insert(entitySource("Cheese", SpawnSource(cheese)));
-			itemSources.insert(entitySource("Bread", SpawnSource(bread)));
-			itemSources.insert(entitySource("Chicken", SpawnSource(chicken)));
-			itemSources.insert(entitySource("Salmon", SpawnSource(salmon)));
-			itemSources.insert(entitySource("Cod", SpawnSource(cod)));
-			itemSources.insert(entitySource("Steak", SpawnSource(steak)));
-
-			itemSources.insert(entitySource("Cider", SpawnSource(cider)));
-			itemSources.insert(entitySource("Ale", SpawnSource(ale)));
-			itemSources.insert(entitySource("Mead", SpawnSource(mead)));
-			itemSources.insert(entitySource("Rum", SpawnSource(rum)));
-			itemSources.insert(entitySource("Vodka", SpawnSource(vodka)));
-			itemSources.insert(entitySource("Whisky", SpawnSource(whisky)));
-			itemSources.insert(entitySource("Wine", SpawnSource(wine)));
-			itemSources.insert(entitySource("Bourbon", SpawnSource(burbon)));
-
-			itemSources.insert(entitySource("Helmet", SpawnSource(helmet)));
-			itemSources.insert(entitySource("SteelBoots", SpawnSource(steelBoots)));
-			itemSources.insert(entitySource("Sword", SpawnSource(sword)));
-			itemSources.insert(entitySource("ChainMail", SpawnSource(chainmail)));
-
-			specialItemSources.insert(entitySource("Key", SpawnSource(key)));
-			specialItemSources.insert(entitySource("StairsUp", SpawnSource(stairsUp, 0.0f)));
-			specialItemSources.insert(entitySource("StairsDown", SpawnSource(stairsDown, 0.0f)));
-
-			enemySources.insert(entitySource("Rat", SpawnSource(rat)));
-			enemySources.insert(entitySource("GiantRat", SpawnSource(giantRat)));
-			enemySources.insert(entitySource("Orc", SpawnSource(orc)));
-			enemySources.insert(entitySource("Troll", SpawnSource(troll)));
-			enemySources.insert(entitySource("Witch", SpawnSource(witch)));
-
-			enemySources.insert(entitySource("ShopKeeper", SpawnSource(shopKeeper)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(key,		-1.0f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(stairsUp,	-1.0f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(stairsDown, -1.0f)));
 
 
 		}
 
 		void EntityTemplate::UpdateSpawnChances(const int& levelNumber) {
 
-			float curve = (levelNumber / 20.0f) + 1.0f;
-			float chance = 0.0f;
-			unsigned int i = -1;
+			float curve = (levelNumber / 20.0f);
+			float constant = 0.25f;
 
-			try {
-
-				for (int i = 0; i < newItemSources.size(); i++) {
+			float currentSpawnChance = 0.0f;
 
 
-					if (i > 1) {
-						const float& lastSpawnChance = newItemSources.at(i - 1).second.getSpawnChance();
-						newItemSources.at(i).first += newItemSources.at(i - 1).first + lastSpawnChance;
+			for (int i = 0; i < allSources.size(); i++) {
 
+				float thisSpawnChance = allSources.at(i).second.getSpawnChance();
+				if (thisSpawnChance < 0.0f)
+					continue;
 
-					}
-					else {
-						newItemSources.at(i).first = newItemSources.at(i).second.getSpawnChance();
-					}
+				float lastSpawnChance = 0.0f;
 
-					Log::AddMessage(std::to_string(newItemSources.at(i).first));
-				}
+				if (i != 0)
+					lastSpawnChance = allSources.at(i - 1).second.getSpawnChance();
 
+				currentSpawnChance += (thisSpawnChance + curve) * constant;
 
-
-				//i++; chance += curve * 3.0f;		itemSources.at("Berries").setSpawnChance(chance);
-				//i++; chance += curve * 2.0f;		itemSources.at("Mushrooms").setSpawnChance(chance);
-				//i++; chance += curve * 1.2f;		itemSources.at("Cheese").setSpawnChance(chance);
-				//i++; chance += curve * 1.2f;		itemSources.at("Bread").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		itemSources.at("Chicken").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		itemSources.at("Salmon").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		itemSources.at("Cod").setSpawnChance(chance);
-				//i++; chance += curve * 0.6f;		itemSources.at("Steak").setSpawnChance(chance);
-
-				//i++; chance += curve * 2.0f;		itemSources.at("Cider").setSpawnChance(chance);
-				//i++; chance += curve * 2.0f;		itemSources.at("Ale").setSpawnChance(chance);
-				//i++; chance += curve * 1.8f;		itemSources.at("Mead").setSpawnChance(chance);
-				//i++; chance += curve * 1.5f;		itemSources.at("Wine").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		itemSources.at("Rum").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		itemSources.at("Vodka").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		itemSources.at("Whisky").setSpawnChance(chance);
-				//i++; chance += curve * 0.3f;		itemSources.at("Bourbon").setSpawnChance(chance);
-
-				//i++; chance += curve * 0.5f;		itemSources.at("Helmet").setSpawnChance(chance);
-				//i++; chance += curve * 0.5f;		itemSources.at("SteelBoots").setSpawnChance(chance);
-				//i++; chance += curve * 0.3f;		itemSources.at("Sword").setSpawnChance(chance);
-				//i++; chance += curve * 0.1f;		itemSources.at("ChainMail").setSpawnChance(chance);
-
-				//if (i < itemSources.size() - 1)
-				//	Log::AddMessage("Forgot to add spawnchance to all item templates!", Message::Type::Warning);
-
-				//i = -1;
-				//i++; chance = 0.0f;
-				//i++; chance += curve * 5.0f;		enemySources.at("Rat").setSpawnChance(chance);
-				//i++; chance += curve * 3.5f;		enemySources.at("GiantRat").setSpawnChance(chance);
-				//i++; chance += curve * 2.0f;		enemySources.at("Orc").setSpawnChance(chance);
-				//i++; chance += curve * 1.0f;		enemySources.at("Troll").setSpawnChance(chance);
-				//i++; chance += curve * 0.9f;		enemySources.at("Witch").setSpawnChance(chance);
-
-				//if (i < enemySources.size() - 1)
-				//	Log::AddMessage("Forgot to add spawnchance to all enemy templates!", Message::Type::Warning);
-
+				allSources.at(i).first = currentSpawnChance + lastSpawnChance;
 			}
-			catch (...) {
-				Log::AddMessage("Tried to update spawn chance of nonexistent entity!", Message::Type::Error);
-			}
+						
 
 		}
 
-		Entity* EntityTemplate::TryGetItem(const float& randomNumber) {
+		Entity* EntityTemplate::TryGetEntity(const float& randomNumber) {
 
-			for (auto& spawnSource : itemSources) {
-				if (randomNumber < spawnSource.second.getSpawnChance()) {
+			for (auto& spawnSource : allSources) {
+				if (randomNumber < spawnSource.first) {
 					return spawnSource.second.GetEntity();
 				}
 			}
 
-			return nullptr;
-		}
-
-		Entity* EntityTemplate::TryGetEnemy(const int& randomNumber) {
-
-			for (auto& spawnSource : enemySources) {
-				if (randomNumber < spawnSource.second.getSpawnChance()) {
-					return spawnSource.second.GetEntity();
-				}
-			}
 			return nullptr;
 		}
 
 		Entity* EntityTemplate::Find(const std::string& name) {
 
-
-			//for (auto& source : newItemSources) {
-
-			//	SpawnSource sp = source.second;
-
-			//	if (CompareStrings(sp.getName(), name, false)) {
-			//		return sp.GetEntity();
-			//	}
-
-			//}
-
-
-			for (auto& spawnSource : itemSources) {
-				if (CompareStrings(spawnSource.first, name, false)) {
+			for (auto& spawnSource : allSources) {
+				if (CompareStrings(spawnSource.second.getName(), name, false)) {
 					return spawnSource.second.GetEntity();
 				}
 			}
-
-			for (auto& spawnSource : enemySources) {
-				if (CompareStrings(spawnSource.first, name, false)) {
-					return spawnSource.second.GetEntity();
-				}
-			}
-
-			for (auto& spawnSource : specialItemSources) {
-				if (CompareStrings(spawnSource.first, name, false)) {
-					return spawnSource.second.GetEntity();
-				}
-			}
-
+			
 			Log::AddMessage("Could not find '" + name + "' in entity templates", Message::Type::Warning);
 
 			return nullptr;

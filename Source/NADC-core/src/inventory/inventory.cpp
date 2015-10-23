@@ -17,7 +17,7 @@ namespace glaze {
 			_items.clear();
 		}
 
-		bool Inventory::AddEntity(Entity* item, const bool& supressLog) {
+		bool Inventory::Add(Entity* item, const bool& supressLog) {
 
 			if (item == nullptr) {
 				Log::AddMessage("Failed to add item to inventory");
