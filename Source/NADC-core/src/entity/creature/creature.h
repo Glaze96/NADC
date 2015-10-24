@@ -21,13 +21,15 @@ namespace glaze {
 			float _maxHealth;
 			float _totalDamage;
 			float _totalArmour;
+			float _speed;
+			float _stepCounter;
 
 			// Debug
 			bool _noClip;
 			bool _invincible;
 
 		protected: // Con- & destructor's
-			Creature(const std::string& name, const char& appearance, const int& color = Color::WHITE, const float& health = 100.0f, const float& totalDamage = 0.0f, const float& totalArmour = 0.0f);
+			Creature(const std::string& name, const char& appearance, const int& color = Color::WHITE, const float& health = 100.0f, const float& totalDamage = 0.0f, const float& totalArmour = 0.0f, const float& speed = 1.0f);
 			~Creature() {}
 
 		public: // getters

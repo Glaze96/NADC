@@ -10,16 +10,22 @@ using namespace glibrary;
 	namespace gengine {
 
 		Creature::Creature(const std::string& name, const char& appearance, const int& color, 
-			const float& health, const float& totalDamage, const float& totalArmour)
+			const float& health, const float& totalDamage, const float& totalArmour, const float & speed)
 			: Entity(name, appearance, color),
 			_health(health), _maxHealth(health), _totalDamage(totalDamage), 
-			_totalArmour(totalArmour), _noClip(false), _invincible(false) {}
+			_totalArmour(totalArmour), _speed(speed), _stepCounter(0.0f), _noClip(false), _invincible(false) {}
 		
 		void Creature::DoAction(Entity* entity, Player* player, const Action& action) {
 			entity->Interact(player);
 		}
 
 		bool Creature::Move(const Vector2i& direction) {
+
+			_stepCounter += _speed;
+
+			if (_stepCounter < 1.0f) return false;
+			
+			_stepCounter = 0.0f;
 
 			Vector2i newPosition = getPosition() + direction;
 

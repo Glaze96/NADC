@@ -5,7 +5,6 @@
 
 // Gengine includes
 #include "creature.h"
-#include "../../system/events/eventlistener.h"
 #include "../../system/events/eventhandler.h"
 
 namespace glaze {
@@ -21,9 +20,8 @@ namespace glaze {
 		class Enemy : public Creature {
 		private:
 			AIState _aiState;
-
 		public: // Con- & destructor's
-			Enemy(const std::string& name, const float& totalDamage, const float& totalArmour, const float& health);
+			Enemy(const std::string& name, const float& totalDamage, const float& totalArmour, const float& health, const float& speed);
 			~Enemy() { }
 
 		public: // Public methods
@@ -40,7 +38,7 @@ namespace glaze {
 		private: // Private methods
 			std::string GetAIStateName(const AIState& state) const;
 			void onPlayerMoved(Event* event) override;
-			void UpdateMovement(Player* player);
+			void UpdateMovement(const Vector2i& playerPostion);
 			void UpdateState(Player* player);
 		};
 

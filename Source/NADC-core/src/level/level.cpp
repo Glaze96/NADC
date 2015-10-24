@@ -183,6 +183,8 @@ namespace glaze {
 		void Level::Draw() const {
 			DrawLevel();
 
+			Color::SetBold();
+
 			Color::SetColor(Color::YELLOW);
 			for (const auto* item : _items) {
 				item->Draw();
@@ -198,6 +200,8 @@ namespace glaze {
 			for (const auto* other : _other) {
 				other->Draw();
 			}
+
+			Color::ResetBold();
 
 		}
 

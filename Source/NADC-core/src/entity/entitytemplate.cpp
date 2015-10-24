@@ -62,11 +62,11 @@ namespace glaze {
 		Entity* stairsDown = new Stairs("Stairs down", 'D', false);
 
 		// Enemies
-		Entity* rat = new Enemy("Rat", 2.00f, 1.0f, 10.0f);
-		Entity* giantRat = new Enemy("Giant rat", 5.00f, 2.0f, 30.0f);
-		Entity* troll = new Enemy("Troll", 8.00f, 4.0f, 50.0f);
-		Entity* witch = new Enemy("Witch", 4.0f, 2.0f, 100.0f);
-		Entity* orc = new Enemy("Orc", 12.0f, 5.0f, 50.0f);
+		Entity* rat = new Enemy("Rat", 2.00f, 1.0f, 10.0f, 0.2f);
+		Entity* giantRat = new Enemy("Giant rat", 5.00f, 2.0f, 30.0f, 0.75f);
+		Entity* troll = new Enemy("Troll", 8.00f, 4.0f, 50.0f, 0.9f);
+		Entity* witch = new Enemy("Witch", 4.0f, 2.0f, 100.0f, 0.9f);
+		Entity* orc = new Enemy("Orc", 12.0f, 5.0f, 50.0f, 0.9f);
 
 		// NPCs
 		Entity* shopKeeper = new ShopKeeper("Shop Keeper");

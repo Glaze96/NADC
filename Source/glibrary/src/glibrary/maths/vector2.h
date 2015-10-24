@@ -60,6 +60,8 @@ namespace glaze {
 			std::string ToString() const;
 
 		public: // Public operators
+			Vector2i operator-() const;
+
 			Vector2i operator+(const Vector2i& v) const;
 			Vector2i operator-(const Vector2i& v) const;
 			Vector2i operator+(const int& i) const;

@@ -148,6 +148,10 @@ namespace glaze {
 			return "(" + std::to_string(x) + "; " + std::to_string(y) + ")";
 		}
 
+		Vector2i Vector2i::operator-() const {
+			return Vector2i(-x, -y);
+		}
+
 		// Operators
 		Vector2i Vector2i::operator+(const Vector2i& v) const {
 			return Vector2i(x + v.x, y + v.y);
