@@ -23,7 +23,7 @@ namespace glaze {
 
 			GenerateEquipmentSlots();
 
-			_inventory.Add(EntityTemplate::Find("sword"));
+			_inventory.Add(EntityTemplate::Find("Bronze sword"));
 			_inventory.Add(EntityTemplate::Find("helmet"));
 		}
 
@@ -154,9 +154,9 @@ namespace glaze {
 		void Player::UpdateVisibility() const {
 
 #ifdef _DEBUG
-			float resolution = 0.3f;
+			float resolution = 0.2f;
 #else
-			float resolution = 0.1f;
+			float resolution = 0.075f;
 #endif
 
 

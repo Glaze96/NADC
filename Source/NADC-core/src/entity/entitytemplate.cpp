@@ -48,7 +48,11 @@ namespace glaze {
 		Entity* burbon = new Alcohol("Bourbon", 2.0f, 20.0f);
 
 		// Equipment
-		Entity* sword = new Equipment("Sword", 10.0f, 0.0f, Item::Type::Hand);
+		Entity* bronzeSword = new Equipment("Bronze sword", 10.0f, 0.0f, Item::Type::Hand);
+		Entity* ironSword = new Equipment("Iron sword", 10.0f, 0.0f, Item::Type::Hand);
+		Entity* steelSword = new Equipment("Steel sword", 10.0f, 0.0f, Item::Type::Hand);
+		Entity* titaniumSword = new Equipment("Titanium sword", 10.0f, 0.0f, Item::Type::Hand);
+
 		Entity* helmet = new Equipment("Helmet", 0.00f, 5.0f, Item::Type::Head);
 		Entity* steelBoots = new Equipment("Steel boots", 0.00f, 2.0f, Item::Type::Feet);
 		Entity* chainmail = new Equipment("Chain mail", 0.00f, 10.0f, Item::Type::Torso);
@@ -91,7 +95,11 @@ namespace glaze {
 			allSources.push_back(entitySource(0.0f, SpawnSource(whisky,		0.30f)));
 			allSources.push_back(entitySource(0.0f, SpawnSource(burbon,		0.10f)));
 																		
-			allSources.push_back(entitySource(0.0f, SpawnSource(sword,		0.05f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(bronzeSword,	0.1f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(ironSword,		0.05f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(steelSword,		0.02f)));
+			allSources.push_back(entitySource(0.0f, SpawnSource(titaniumSword,	0.01f)));
+
 			allSources.push_back(entitySource(0.0f, SpawnSource(helmet,		0.05f)));
 			allSources.push_back(entitySource(0.0f, SpawnSource(steelBoots,	0.05f)));
 			allSources.push_back(entitySource(0.0f, SpawnSource(chainmail,	0.05f)));
@@ -150,13 +158,17 @@ namespace glaze {
 
 		Entity* EntityTemplate::Find(const std::string& name) {
 
+			std::string nameWithoutSpaces = name;
+			RemoveSpaces(nameWithoutSpaces);
+
 			for (auto& spawnSource : allSources) {
-				if (CompareStrings(spawnSource.second.getName(), name, false)) {
+
+				if (CompareStrings(spawnSource.second.getName(), nameWithoutSpaces, false)) {
 					return spawnSource.second.GetEntity();
 				}
 			}
 			
-			Log::AddMessage("Could not find '" + name + "' in entity templates", Message::Type::Warning);
+			Log::AddMessage("Could not find '" + nameWithoutSpaces + "' in entity templates", Message::Type::Warning);
 
 			return nullptr;
 		}

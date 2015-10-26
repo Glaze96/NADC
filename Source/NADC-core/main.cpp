@@ -1,9 +1,3 @@
-/*
-	Session work:
-		Spawn entity system
-*/
-
-
 #define DEBUG
 
 // Glibrary includes

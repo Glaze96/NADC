@@ -21,6 +21,12 @@ namespace glaze {
 			float _maxHealth;
 			float _totalDamage;
 			float _totalArmour;
+
+			int _strength;
+			int _attack;
+			int _dexterity;
+			int _defense;
+
 			float _speed;
 			float _stepCounter;
 
@@ -50,6 +56,7 @@ namespace glaze {
 		protected: // Protected methods
 			bool Move(const Vector2i& direction); // Wall detection integrated
 			void PrintStats(const Vector2i& position, unsigned int& lines) override;
+			float CalulateDamage();
 		
 		};
 

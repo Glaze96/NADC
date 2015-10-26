@@ -112,6 +112,10 @@ using namespace glibrary;
 
 		}
 
+		float Creature::CalulateDamage() {
+			
+			return 0.0f;
+		}
 
 
 	} // End namespace gengine

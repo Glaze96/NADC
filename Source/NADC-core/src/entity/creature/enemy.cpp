@@ -17,20 +17,8 @@ namespace glaze {
 	namespace gengine {
 
 		Enemy::Enemy(const std::string& name, const float& totalDamage, const float& totalArmour, const float& health, const float& speed)
-			: Creature(name, 'E', Color::RED, health, totalDamage, totalArmour, speed), _aiState(AIState::Idling) {}
+			: Creature(name, 'E', Color::RED, health, totalDamage, totalArmour, speed), _state(State::Idling) {}
 
-		void Enemy::PrintStats(const Vector2i& position, unsigned int& lines) {
-
-			Creature::PrintStats(position, lines);
-
-			lines += 2;
-			Out::PrintlnAt(position.x + 2, position.y + lines, "Enemy");
-#ifdef _DEBUG
-			lines++;
-			Out::PrintlnAt(position.x + 2, position.y + lines, "State: " + GetAIStateName(_aiState));
-#endif
-
-		}
 
 		void Enemy::Interact(Player* player) {
 			SoundManager::GetPlayList("Ouch")->PlayRandom(true);
@@ -38,30 +26,16 @@ namespace glaze {
 			Damage(player->getTotalDamage());
 		}
 
-		std::string Enemy::GetAIStateName(const AIState& state) const {
-			switch (state) {
-			case AIState::Idling:
-				return "Idling";
-			case AIState::Running:
-				return "Running";
-			case AIState::Chasing:
-				return "Chasing";
-			case AIState::Attacking:
-				return "Attacking";
-			default:
-				return "Error";
-
-			}
-		}
-
 		void Enemy::onPlayerMoved(Event* event) {
 			PlayerMovedEvent* e = static_cast<PlayerMovedEvent*>(event);
 			UpdateVisibility(e->_player->getPosition());
 			UpdateMovement(e->_toPosition);
-			UpdateState(e->_player);
+			UpdateState(e->_toPosition);
 		}
 
 		void Enemy::UpdateMovement(const Vector2i& playerPosition) {
+
+			if (_state == Attacking || _state == Idling) return;
 
 			if (CanSeePlayer(playerPosition)) {
 				if (playerPosition == getPosition()) return;
@@ -84,7 +58,7 @@ namespace glaze {
 					finalDirection.y = -1;
 				}
 
-				if (_aiState == AIState::Running) {
+				if (_state == State::Running) {
 					finalDirection = -finalDirection;
 				}
 
@@ -93,18 +67,48 @@ namespace glaze {
 			}
 		}
 
-		void Enemy::UpdateState(Player* player) {
-			if (CanSeePlayer(player->getPosition()))
-				_aiState = AIState::Chasing;
+		void Enemy::UpdateState(const Vector2i& playerPosition) {
+			if (CanSeePlayer(playerPosition))
+				_state = State::Chasing;
 			else
-				_aiState = AIState::Idling;
+				_state = State::Idling;
 
-			if (player->getPosition() == getPosition()) {
-				_aiState = AIState::Attacking;
+			if (playerPosition == getPosition()) {
+				_state = State::Attacking;
 			}
 
-			if (_health <= _maxHealth / 5.0f)
-				_aiState = AIState::Running;
+			if (_health <= _maxHealth / 4.0f)
+				_state = State::Running;
+		}
+
+
+		void Enemy::PrintStats(const Vector2i& position, unsigned int& lines) {
+
+			Creature::PrintStats(position, lines);
+
+			lines += 2;
+			Out::PrintlnAt(position.x + 2, position.y + lines, "Enemy");
+#ifdef _DEBUG
+			lines++;
+			Out::PrintlnAt(position.x + 2, position.y + lines, "State: " + GetAIStateName(_state));
+#endif
+
+		}
+
+		std::string Enemy::GetAIStateName(const State& state) const {
+			switch (state) {
+			case State::Idling:
+				return "Idling";
+			case State::Running:
+				return "Running";
+			case State::Chasing:
+				return "Chasing";
+			case State::Attacking:
+				return "Attacking";
+			default:
+				return "Error";
+
+			}
 		}
 
 	} // End namespace gengine

@@ -353,21 +353,21 @@ namespace glaze {
 		}
 
 		void LevelGenerator::PushRoomsToLevel() {
-			for (Room& room : *_rooms) {
+			for (auto& room : *_rooms) {
 				room.PushTilesToLevel(_level);
 			}
 		}
 
 		void LevelGenerator::SpawnEntities() {
 
-			for (Room& room : *_rooms) {
+			for (auto& room : *_rooms) {
 
 				for (int y = 0; y < room.getSize().y; y++) {
 					for (int x = 0; x < room.getSize().x; x++) {
 
 						Vector2i position = room.getPosition() + Vector2i(x, y);
 
-						float random = rand() % 1000;
+						float random = rand() % 100;
 
 						Entity* item = EntityTemplate::TryGetEntity(random);
 
@@ -383,8 +383,8 @@ namespace glaze {
 		}
 
 		void LevelGenerator::SpawnStairs() {
-			_level->AddEntity(EntityTemplate::Find("StairsDown"), GetTileInRandomRoom(), true);
-			_level->AddEntity(EntityTemplate::Find("StairsUp"), GetTileInRandomRoom(), true);
+			_level->AddEntity(EntityTemplate::Find("Stairs down"), GetTileInRandomRoom(), true);
+			_level->AddEntity(EntityTemplate::Find("Stairs up"), GetTileInRandomRoom(), true);
 		}
 
 		Vector2i LevelGenerator::GetWalkableTile(const Boxi& box) {
