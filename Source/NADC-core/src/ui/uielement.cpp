@@ -8,7 +8,7 @@ namespace glaze {
 	namespace gengine {
 
 		void UIElement::DrawBorders() const {
-			DrawBox(Boxf((float)_size.x, (float)_size.y, (float)_position.x, (float)_position.y));
+			Draw::DrawBox(Boxf((float)_size.x, (float)_size.y, (float)_position.x, (float)_position.y));
 		}
 
 

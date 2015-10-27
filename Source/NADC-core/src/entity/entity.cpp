@@ -78,8 +78,9 @@ namespace glaze {
 		}
 
 		void Entity::UpdateVisibility(const Vector2i& playerPosition) {
-			if (!_visible)
+			if (!_visible) {
 				_visible = CanSeePlayer(playerPosition);
+			}
 		}
 
 		void Entity::onPlayerMoved(Event* event) {

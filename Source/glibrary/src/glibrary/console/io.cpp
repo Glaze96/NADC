@@ -1,6 +1,5 @@
 #include "io.h"
 
-#include "cursor.h"
 #include "..\..\curses\curses.h"
 
 namespace glaze {
@@ -21,7 +20,7 @@ namespace glaze {
 		}
 
 		std::string In::ReadlnAt(const int &x, const int &y) {
-			Cursor::Move(x, y);
+			move(y, x);
 
 			std::string str = Readln();
 
@@ -50,7 +49,7 @@ namespace glaze {
 		}
 
 		void Out::PrintlnAt(const int& x, const int& y, std::string str, ...) {
-			Cursor::Move(x, y);
+			move(y, x);
 
 			va_list args;
 

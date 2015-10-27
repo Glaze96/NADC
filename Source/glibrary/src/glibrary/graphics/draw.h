@@ -1,24 +1,20 @@
 #pragma once
 
 #include "..\maths\geometry.h"
-#include "..\console\window.h"
 
 namespace glaze {
 	namespace glibrary {
 
+		class Draw {
+		public:
+			static void DrawBox(Boxf &box);
+			static void DrawBox(Boxf &box, const char &ch);
 
-		extern void DrawRectangle(Boxf &box, const char &ch);
-		// Add w rectangle
-		extern void DrawBox(Boxf &box);
-		extern void DrawBox(Boxf &box, const char &ch);
-		extern void DrawBox(Window &window, Boxf &box);
-		extern void DrawBox(Window &window, Boxf &box, const char &ch);
+			static void DrawCircle(Circle &circle);
 
-		extern void DrawCircle(Circle &circle);
-		extern void DrawCircle(Window &window, Circle &circle);
+			static void DrawLineSegment(LineSegment &lineSegment);
 
-		extern void DrawLineSegment(LineSegment &lineSegment);
-		// Add w linesegment
+		};
 
 	} // End namespace glibrary
 } // End namespace glaze

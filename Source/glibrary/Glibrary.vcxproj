@@ -92,11 +92,9 @@
     <ClInclude Include="src\glibrary\audio\playlist.h" />
     <ClInclude Include="src\glibrary\audio\sound.h" />
     <ClInclude Include="src\glibrary\audio\soundmanager.h" />
-    <ClInclude Include="src\glibrary\console\cursor.h" />
     <ClInclude Include="src\glibrary\console\io.h" />
     <ClInclude Include="src\glibrary\console\log.h" />
     <ClInclude Include="src\glibrary\console\message.h" />
-    <ClInclude Include="src\glibrary\console\window.h" />
     <ClInclude Include="src\glibrary\engine\engine.h" />
     <ClInclude Include="src\glibrary\graphics\color.h" />
     <ClInclude Include="src\glibrary\graphics\draw.h" />
@@ -161,11 +159,9 @@
     <ClCompile Include="src\glibrary\audio\playlist.cpp" />
     <ClCompile Include="src\glibrary\audio\sound.cpp" />
     <ClCompile Include="src\glibrary\audio\soundmanager.cpp" />
-    <ClCompile Include="src\glibrary\console\cursor.cpp" />
     <ClCompile Include="src\glibrary\console\io.cpp" />
     <ClCompile Include="src\glibrary\console\log.cpp" />
     <ClCompile Include="src\glibrary\console\message.cpp" />
-    <ClCompile Include="src\glibrary\console\window.cpp" />
     <ClCompile Include="src\glibrary\engine\engine.cpp" />
     <ClCompile Include="src\glibrary\graphics\color.cpp" />
     <ClCompile Include="src\glibrary\graphics\draw.cpp" />

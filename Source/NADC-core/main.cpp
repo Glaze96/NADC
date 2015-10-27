@@ -40,17 +40,14 @@ private:
 		
 	}
 
-
-
 	// Runs at targetUPS
 	void Update(const float &updateTick, const int &ch) override {
-
 
 		if (ch == '-')
 			LevelManager::GoDown(true);
 		else if (ch == '+')
 			LevelManager::GoUp(true);
-		else if (ch == (0x108 + (1)))
+		else if (ch == 0x108 + 1) // (F1)
 			Console::Input(player);
 		
 		// Update player

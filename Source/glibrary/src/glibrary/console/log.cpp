@@ -21,7 +21,6 @@ namespace glaze {
 		}
 
 		void Log::AddMessage(const std::string& msg, const Message::Type& type) {
-#ifdef _DEBUG
 			Message newMessage = Message(msg, type, _totalMessages);
 
 			_messages.push_back(newMessage);
@@ -30,7 +29,6 @@ namespace glaze {
 				DeleteFirstMessage();
 
 			ShiftMessages(-1);
-#endif
 		}
 
 		std::string Log::Input() {

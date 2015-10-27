@@ -5,14 +5,14 @@
 #include <chrono>
 
 // Glibrary includes
-#include "..\..\curses\curses.h"
-#include "..\utils\timer.h"
-#include "..\console\io.h"
-#include "..\console\log.h"
-#include "..\graphics\color.h"
-#include "..\audio\soundmanager.h"
+#include "../../curses/curses.h"
+#include "../utils/timer.h"
+#include "../console/io.h"
+#include "../console/log.h"
+#include "../graphics/color.h"
+#include "../audio/soundmanager.h"
 
-#include <complex>
+#include "../system/system.h"
 
 using namespace std::chrono_literals;
 
@@ -34,14 +34,7 @@ namespace glaze {
 		}
 
 		void Engine::Start() {
-			initscr();				// Initializes pdcurses
-			resize_term(_gameHeight, _gameWidth); // Resize to specified height and width
-			start_color();			// Enables colors
-			cbreak();			
-			noecho();				// Do not echo input
-			curs_set(false);		// Disables cursor
-			keypad(stdscr, 1);		// Enables function keys
-			nodelay(stdscr, true);	// Do not pause for input
+			System::Init(_gameWidth, _gameHeight, true, true, false);
 
 			SoundManager::Init();
 
@@ -110,7 +103,7 @@ namespace glaze {
 				
 
 				if (_vSync) {
-					std::this_thread::sleep_for(15ms);
+					std::this_thread::sleep_for(16ms);
 				}
 
 			}

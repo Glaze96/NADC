@@ -23,7 +23,7 @@ namespace glaze {
 				_player->setLevel(_currentLevel);
 				_player->setPosition(_currentLevel->GetStairsDown()->getPosition());
 				_player->UpdateVisibility();
-
+				_player->DispatchPlayerMovedEvent(Vector2i());
 				if (allVisible)
 					_currentLevel->SetAllVisible();
 
@@ -41,6 +41,7 @@ namespace glaze {
 			_player->setLevel(_currentLevel);
 			_player->setPosition(_currentLevel->GetStairsUp()->getPosition());
 			_player->UpdateVisibility();
+			_player->DispatchPlayerMovedEvent(Vector2i());
 
 			if (allVisible)
 				_currentLevel->SetAllVisible();

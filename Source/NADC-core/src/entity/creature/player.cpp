@@ -38,6 +38,11 @@ namespace glaze {
 			_equipmentSlots.push_back(EquipmentSlot("Feet",			Item::Type::Feet));
 		}
 
+		void Player::DispatchPlayerMovedEvent(const Vector2i& direction) {
+			PlayerMovedEvent event = PlayerMovedEvent(this, getPosition(), getPosition() + direction);
+			_level->getEventHandler().Dispatch(event);
+		}
+
 		void Player::SelectionDown() {
 
 			_selection++;
@@ -223,8 +228,7 @@ namespace glaze {
 			}
 
 			if (moved) {
-				PlayerMovedEvent event = PlayerMovedEvent(this, getPosition(), getPosition() + direction);
-				_level->getEventHandler().Dispatch(event);
+				DispatchPlayerMovedEvent(direction);
 				Move(direction);
 				UpdateVisibility();
 			}

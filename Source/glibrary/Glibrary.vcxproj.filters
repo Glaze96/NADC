@@ -162,12 +162,6 @@
     <ClCompile Include="src\curses\pdcurses\ccolor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glibrary\console\cursor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\glibrary\console\window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\glibrary\graphics\color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -222,12 +216,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\glibrary\HeaderTemplate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\glibrary\console\cursor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\glibrary\console\window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\glibrary\console\io.h">

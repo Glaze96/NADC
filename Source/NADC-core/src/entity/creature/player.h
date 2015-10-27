@@ -59,6 +59,7 @@ namespace glaze {
 			void PrintStats(const Vector2i& position, unsigned int& lines) override;
 			void UpdateVisibility() const;
 			void GenerateEquipmentSlots();
+			void DispatchPlayerMovedEvent(const Vector2i& direction);
 
 		private: // Private methods
 			void MakeAction(const Action& action);
