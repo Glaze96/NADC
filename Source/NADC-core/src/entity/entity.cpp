@@ -2,10 +2,8 @@
 
 // Glibrary includes
 #include <Glibrary/console/io.h>
-#include <Glibrary/graphics/color.h>
 
 // Gengine includes
-#include "creature/player.h"
 #include "../system/events/types/playermovedevent.h"
 
 namespace glaze {

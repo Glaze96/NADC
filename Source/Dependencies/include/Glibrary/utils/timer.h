@@ -14,7 +14,7 @@ namespace glaze {
 			Timer() {
 				LARGE_INTEGER frequencey;
 				QueryPerformanceFrequency(&frequencey);
-				_frequency = 1.0 / frequencey.QuadPart;-				
+				_frequency = 1.0 / frequencey.QuadPart;			
 				QueryPerformanceCounter(&_start);
 			}
 
