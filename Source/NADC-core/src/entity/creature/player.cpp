@@ -78,7 +78,6 @@ namespace glaze {
 
 			MenuInteraction(ch);
 
-			ChangeDrunkness(-updateTick / 800.0f);
 
 		}
 
@@ -228,9 +227,10 @@ namespace glaze {
 			}
 
 			if (moved) {
-				DispatchPlayerMovedEvent(direction);
 				Move(direction);
+				DispatchPlayerMovedEvent(direction);
 				UpdateVisibility();
+				ChangeDrunkness(-0.002f);
 			}
 
 		}

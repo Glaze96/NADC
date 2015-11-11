@@ -6,15 +6,15 @@
 #include <Glibrary/console/log.h>
 
 namespace glaze {
-using namespace glibrary;
+	using namespace glibrary;
 	namespace gengine {
 
-		Creature::Creature(const std::string& name, const char& appearance, const int& color, 
+		Creature::Creature(const std::string& name, const char& appearance, const int& color,
 			const float& health, const float& totalDamage, const float& totalArmour, const float & speed)
 			: Entity(name, appearance, color),
-			_health(health), _maxHealth(health), _totalDamage(totalDamage), 
+			_health(health), _maxHealth(health), _totalDamage(totalDamage),
 			_totalArmour(totalArmour), _speed(speed), _stepCounter(0.0f), _noClip(false), _invincible(false) {}
-		
+
 		void Creature::DoAction(Entity* entity, Player* player, const Action& action) {
 			entity->Interact(player);
 		}
@@ -24,13 +24,14 @@ using namespace glibrary;
 			_stepCounter += _speed;
 
 			if (_stepCounter < 1.0f) return false;
-			
+
 			_stepCounter = 0.0f;
 
 			Vector2i newPosition = getPosition() + direction;
 
-			if (getCurrentLevel()->GetTile(newPosition).getType() == Tile::Type::Wall && !_noClip) {
-				return false;
+			if ((getCurrentLevel()->GetTile(newPosition).getType() == Tile::Type::Wall && !_noClip) ||
+				getCurrentLevel()->GetNumEntitiesAtPosition(newPosition) > 0){
+					return false;
 			}
 
 			setPosition(newPosition);
@@ -113,7 +114,7 @@ using namespace glibrary;
 		}
 
 		float Creature::CalulateDamage() {
-			
+
 			return 0.0f;
 		}
 

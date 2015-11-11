@@ -5,6 +5,7 @@
 
 // Gengine includes
 #include "../system/events/types/playermovedevent.h"
+#include "creature/player.h"
 
 namespace glaze {
 	namespace gengine {

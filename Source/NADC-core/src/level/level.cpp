@@ -28,11 +28,11 @@ namespace glaze {
 				_tiles.push_back(std::vector<Tile>(_size.y, tile));
 		}
 
-		unsigned Level::GetNumEntitiesAtPosition(const Vector2i& position) const {
+		unsigned int Level::GetNumEntitiesAtPosition(const Vector2i& position) const {
 			return GetNumEntitiesAtPosition(position.x, position.y);
 		}
 
-		unsigned Level::GetNumEntitiesAtPosition(const int& x, const int& y) const {
+		unsigned int Level::GetNumEntitiesAtPosition(const int& x, const int& y) const {
 			return GetEntitiesAtPosition(x, y).size();
 		}
 

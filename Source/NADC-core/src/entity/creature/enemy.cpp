@@ -40,23 +40,32 @@ namespace glaze {
 			if (CanSeePlayer(playerPosition)) {
 				if (playerPosition == getPosition()) return;
 
-				Vector2f playerDirection = (Vector2f)(playerPosition - getPosition()).Normalized();
+				Vector2i playerDirection = playerPosition - getPosition();
 
 				Vector2i finalDirection;
 
-				if (playerDirection.x > 0.0f) {
-					finalDirection.x = 1;
+				char dir[2] = { 0, 0 };
+
+
+
+				if (playerDirection.x > 0) {
+					dir[0] = 2;
 				}
-				else if (playerDirection.x < 0.0f) {
-					finalDirection.x = -1;
+				else if (playerDirection.x < 0) {
+					dir[0] = 1;
 				}
 
-				if (playerDirection.y > 0.0f) {
-					finalDirection.y = 1;
+				if (playerDirection.y > 0) {
+					dir[1] = 2;
 				}
-				else if (playerDirection.y < 0.0f) {
-					finalDirection.y = -1;
+				else if (playerDirection.y < 0) {
+					dir[1] = 1;
 				}
+
+				if (dir[0] > 0 && dir[1] > 0) {
+					
+				}
+
 
 				if (_state == State::Running) {
 					finalDirection = -finalDirection;
