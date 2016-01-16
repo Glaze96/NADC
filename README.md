@@ -2,7 +2,7 @@
 
 ##### Premise
 This is a small project started for testing out [pdCurses](http://pdcurses.sourceforge.net/).
-The pdCurses "phase" is over and if you want my opinion on it: it's good, as it can pump out 30 frames per second for a 150x90 window. The api is simple and can be learned in 1-2 days.
+The pdCurses "phase" is over and if you want my opinion on it: it's good, for me, as it can pump out 30 frames per second for a 150x90 window. The library is simple and can be learned in 1-2 days.
 
 ##### Result
 So what have the project involved into?
